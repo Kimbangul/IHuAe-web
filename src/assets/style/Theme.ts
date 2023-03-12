@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-const color = {
+export const color = {
   main: {
     main: '#8291E6',
     secondary: '#A2AFF8',
@@ -21,13 +21,14 @@ const color = {
   bg: {
     bg_01: '#F5F8FD',
   },
+  white: '#fff',
 };
 
-const layout = {
+export const layout = {
   headerHeight: '50px',
 };
 
-const font = {
+export const font = {
   sans: {
     light: css`
       font-family: 'SpoqaHanSansNeo-Light';
@@ -48,4 +49,10 @@ const font = {
   },
 };
 
-export { color, layout, font };
+const theme = {
+  color,
+  layout,
+  font,
+};
+
+export default theme;
