@@ -1,10 +1,11 @@
-import NavView from '@/components/common/NavNiew';
+import PageWrapper from '@/components/common/PageWrapper';
 
 export default function Home() {
   return (
     <>
-      hello!
-      <NavView />
+      <PageWrapper>
+        <>hello!</>
+      </PageWrapper>
     </>
   );
 }

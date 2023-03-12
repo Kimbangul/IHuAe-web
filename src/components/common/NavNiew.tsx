@@ -30,6 +30,7 @@ const Nav = {
     width: 100%;
     height: 7rem;
     background-color: ${({ theme }) => theme.color.white};
+    flex-shrink: 0;
   `,
   Inner: styled.ul`
     display: flex;
