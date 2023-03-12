@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
 
-import NavView from './NavNiew';
+import NavContainer from '@/components/common/nav/NavContainer';
 
 // COMPONENT
 const PageWrapper: React.FC<PageWrapperPropsType> = ({ children }) => {
   return (
     <Page.Container className='Page'>
       <Page.Inner className='Page__inner'>{children}</Page.Inner>
-      <NavView />
+      <NavContainer />
     </Page.Container>
   );
 };
