@@ -24,7 +24,7 @@ const NavItemView: React.FC<NavItemPropsType> = ({ link, title, icon, active }) 
   );
 };
 
-// PARAM style
+// COMPONENT style
 const Nav = {
   Container: styled.nav`
     width: 100%;
