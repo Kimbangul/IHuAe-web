@@ -1,38 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IHuAe💗
+## 🔍요약
+* 사용 기술스택 : Next.js, TypeScript, Styled-components
 
-## Getting Started
+## 📝설명
+### ❔ 이별 후 슬픈 감정을 더 건강하게 조정할 순 없을까? <br/>❔ 이별의 단계를 좀 덜 아프게 받아들일 순 없을까?
+이별이 서툰 우리들이지만, 좀 더 열심히 건강하게 이별을 맞닥뜨리고 그 시기를 이겨내고자 한다.<br/>
+만남이 있으면, 이별이 있는 법. 이별을 슬퍼하되, 후유증까지는 가지 말자.
 
-First, run the development server:
+사랑했던 연인과의 이별로 인한 슬픔에 잠겨 아무것도 할 수 없나요?<br/>
+그 사람을 잃은 게 내 모든 걸 잃은 것 처럼 슬픈가요?<br/>
+당신의 인생에서 주인공은 오직 당신뿐입니다.<br/> 
+스쳐지나가는 인연에 집중하기보다 나 자신에 집중해보세요. 분명 괜찮아질거에요. <br/><br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+제대로 이별을 받아들이는 법, 이별에 연습은 없지만 단계는 있다.<br/>
+끝을 받아들일 수 있어야 새로운 시작을 할 수 있는 법.<br/>
+그게 어떠한 시작이든 간에 당신이 다시 일어설 수 있도록 도와드릴게요.<br/><br/>
