@@ -28,6 +28,7 @@ const Page = {
   `,
   Inner: styled.div`
     flex-grow: 1;
+    overflow-y: scroll;
   `,
 };
 
