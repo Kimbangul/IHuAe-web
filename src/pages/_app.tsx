@@ -1,3 +1,4 @@
+import '@/assets/style/fontStyle.css';
 import { ThemeProvider } from 'styled-components';
 
 import DefaultStyle from '@/assets/style';

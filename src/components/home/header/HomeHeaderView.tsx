@@ -6,15 +6,15 @@ const HomeHeaderView = () => {
     <>
       <Header.Container className='Home__header'>
         <Header.Today.Container className='Home__today'>
-          <h1 className='Home__today-date'>D+4</h1>
+          <Header.Today.Date className='Home__today-date'>D+4</Header.Today.Date>
           <div className='Home__today-desc'>
             오늘의 기분을 표현해보세요 <span className='Home__today-icon'></span>
           </div>
-        </div>
+        </Header.Today.Container>
         <div className='Home__qusetion'>
           <p className='Home__question-desc'>요즘 가장 하고 싶은 게 뭐에요?</p>
           <button className='Home__question-btn'>기록하기</button>
-        </Header.Today.Container>
+        </div>
       </Header.Container>
     </>
   );
@@ -34,6 +34,9 @@ const Header = {
       display: flex;
       justify-content: space-between;
       align-items: center;
+    `,
+    Date: styled.h1`
+      color: ${({ theme }) => theme.color.main.main};
     `,
   },
 };

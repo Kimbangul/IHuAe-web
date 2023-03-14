@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'Pretendard', 'Poppins', 'sans-serif';
+  font-family: 'SpoqaHanSansNeo', san-serif;
   font-size: 1.4rem;
   min-width: 280px;
 }
@@ -67,7 +67,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poppins', 'Pretendard', 'sans-serif';
+  font-family: 'SpoqaHanSansNeo', 'san-serif';
 }
 
 input {
