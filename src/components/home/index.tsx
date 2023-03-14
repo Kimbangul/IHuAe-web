@@ -1,12 +1,19 @@
+import styled from 'styled-components';
 import HomeHeaderView from './header/HomeHeaderView';
 
 const Home = () => {
   return (
-    <section className='Home'>
+    <HomeContainer className='Home'>
       <HomeHeaderView />
       content
-    </section>
+    </HomeContainer>
   );
 };
+
+// COMPONENT style
+const HomeContainer = styled.section`
+  height: 100%;
+  background: ${({ theme }) => theme.color.bg.bg_01};
+`;
 
 export default Home;
