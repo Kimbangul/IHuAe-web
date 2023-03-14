@@ -14,17 +14,17 @@ export const GlobalStyle = createGlobalStyle`
   margin-inline-end: 0;
 
   ::selection {
-    background: $purple_01;
+    background: #8291E6;
     color: #fff;
   }
 
   ::-webkit-selection {
-    background: $purple_01;
+    background: #8291E6;
     color: #fff;
   }
 
   ::-moz-selection {
-    background: $purple_01;
+    background: #8291E6;
     color: #fff;
   }
 }

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import HomeHeaderView from './header/HomeHeaderView';
+import HomeContentContainer from './content/HomeContentContainer';
 
 const Home = () => {
   return (
     <HomeContainer className='Home'>
       <HomeHeaderView />
-      content
+      <HomeContentContainer />
     </HomeContainer>
   );
 };
