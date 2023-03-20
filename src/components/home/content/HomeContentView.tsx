@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
+import SwiperCore from 'swiper';
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react';
 import styled, { css } from 'styled-components';
 
@@ -7,12 +8,13 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
 import CHEVRON_8 from '@/assets/icons/home/chevron_8.svg';
+import { MouseEventHandler, MutableRefObject } from 'react';
 
 // COMPONENT main component
-const HomeContentView: React.FC<HomeContentPropType> = ({ swiperOption, card }) => {
+const HomeContentView: React.FC<HomeContentPropType> = ({ swiperOption, card, onClickNavBtn }) => {
   return (
     <HomeContent.Container className='HomeContentView'>
-      <SlideNavigationBtn direction='left' />
+      <SlideNavigationBtn direction='prev' onClickNavBtn={onClickNavBtn.bind(this, 'prev')} />
       <Swiper {...swiperOption}>
         {card.map((el, idx) => {
           return (
@@ -24,27 +26,39 @@ const HomeContentView: React.FC<HomeContentPropType> = ({ swiperOption, card }) 
           );
         })}
       </Swiper>
-      <SlideNavigationBtn direction='right' />
+      <SlideNavigationBtn direction='next' onClickNavBtn={onClickNavBtn.bind(this, 'next')} />
     </HomeContent.Container>
   );
 };
 
 //  COMPONENT swiper navigation button
-const SlideNavigationBtn: React.FC<SlideNavigationBtnPropType> = ({ direction }) => {
+const SlideNavigationBtn: React.FC<SlideNavigationBtnPropType> = ({ direction, onClickNavBtn }) => {
   return (
-    <NavBtn.Container direction={direction}>
+    <NavBtn.Container
+      direction={direction}
+      onClick={() => {
+        onClickNavBtn(direction);
+      }}
+    >
       <CHEVRON_8 />
     </NavBtn.Container>
   );
 };
 
 // PARAM type
+
+type OnClickNabBtnType<T> = (direction: 'prev' | 'next') => T;
+type DirectionType = 'prev' | 'next';
+
 interface HomeContentPropType {
   swiperOption: SwiperProps;
   card: StaticImageData[];
+  swiperRef: MutableRefObject<SwiperCore | undefined>;
+  onClickNavBtn: OnClickNabBtnType<void>;
 }
 interface SlideNavigationBtnPropType {
-  direction: 'left' | 'right';
+  direction: DirectionType;
+  onClickNavBtn: OnClickNabBtnType<void> & MouseEventHandler;
 }
 
 // COMPONENT style
@@ -71,14 +85,14 @@ const Card = {
   `,
 };
 const NavBtn = {
-  Container: styled.button<SlideNavigationBtnPropType>`
+  Container: styled.button<{ direction: DirectionType }>`
     position: absolute;
     top: 50%;
     left: 0.9rem;
     transform: translateY(-50%);
 
     ${({ direction }) =>
-      direction === 'left'
+      direction === 'prev'
         ? null
         : css`
             left: unset;
