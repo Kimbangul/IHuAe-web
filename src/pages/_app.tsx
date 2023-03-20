@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <DefaultStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
-        <ModalView>hello!</ModalView>
+        {/* <ModalView>hello!</ModalView> */}
       </ThemeProvider>
     </>
   );

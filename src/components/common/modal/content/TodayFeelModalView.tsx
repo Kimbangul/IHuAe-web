@@ -24,4 +24,4 @@ interface FeelItemPropType {
   img: string;
 }
 
-export default TodayFeelModalItemView;
+export default TodayFeelModalView;
