@@ -1,11 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ReactNode } from 'react';
+
 import UIStore from './store';
 
 const UISlice = createSlice({
   name: 'UI',
   initialState: UIStore,
   reducers: {
-    setModalContent(state, action) {
+    setModalContent(state, action: PayloadAction<ReactNode>) {
       state.modal = action.payload;
     },
     setModalClose(state) {

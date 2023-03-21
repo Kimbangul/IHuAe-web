@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import UISlice from './UI/action';
+import UISlice, { setModalClose, setModalContent } from './UI/action';
 
 const indexStore = configureStore({
   reducer: {
@@ -7,4 +7,9 @@ const indexStore = configureStore({
   },
 });
 
+export const indexReducer = {
+  ui: UISlice.reducer,
+};
+
+export type RootStateType = ReturnType<typeof indexStore.getState>;
 export default indexStore;

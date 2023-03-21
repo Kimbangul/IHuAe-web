@@ -1,11 +1,20 @@
 import { ReactNode } from 'react';
+import { RootStateType } from '@/redux';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ModalView: React.FC<ModalViewPropType> = ({ children }) => {
+  const rootState = useSelector((state: RootStateType) => state);
+  const dispatch = useDispatch();
+
   return (
-    <Modal.Section className='Modal'>
-      <Modal.Container className='Modal__container'>{children}</Modal.Container>
-    </Modal.Section>
+    <>
+      {rootState.ui.modal !== false && (
+        <Modal.Section className='Modal'>
+          <Modal.Container className='Modal__container'>{children}</Modal.Container>
+        </Modal.Section>
+      )}
+    </>
   );
 };
 
