@@ -7,9 +7,7 @@ const indexStore = configureStore({
   },
 });
 
-export const indexReducer = {
-  ui: UISlice.reducer,
-};
+export const indexAction = { setModalClose, setModalContent };
 
 export type RootStateType = ReturnType<typeof indexStore.getState>;
 export default indexStore;

@@ -1,7 +1,11 @@
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import indexStore, { indexAction } from '@/redux';
 
 // COMPONENT
 const HomeHeaderView = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Header.Container className='Home__header'>
@@ -13,7 +17,14 @@ const HomeHeaderView = () => {
         </Header.Today.Container>
         <Header.Qusetion.Container className='Home__qusetion'>
           <Header.Qusetion.Desc className='Home__question-desc'>요즘 가장 하고 싶은 게 뭐에요?</Header.Qusetion.Desc>
-          <Header.Qusetion.Button className='Home__question-btn'>기록하기</Header.Qusetion.Button>
+          <Header.Qusetion.Button
+            className='Home__question-btn'
+            onClick={() => {
+              dispatch(indexAction.setModalContent(<></>));
+            }}
+          >
+            기록하기
+          </Header.Qusetion.Button>
         </Header.Qusetion.Container>
       </Header.Container>
     </>
