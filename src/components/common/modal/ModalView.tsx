@@ -1,16 +1,24 @@
-import { ReactNode } from 'react';
-import { RootStateType } from '@/redux';
+import { MouseEventHandler, ReactNode } from 'react';
+import indexStore, { RootStateType } from '@/redux';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import { indexAction } from '@/redux';
 
 const ModalView: React.FC<ModalViewPropType> = ({ children }) => {
   const rootState = useSelector((state: RootStateType) => state);
   const dispatch = useDispatch();
 
+  /** FUNCTION 기록하기 버튼 클릭 시 실행 */
+  const setModalClose = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(e.target);
+    console.log(indexAction.setModalClose);
+    dispatch(indexAction.setModalClose());
+  };
+
   return (
     <>
       {rootState.ui.modal !== false && (
-        <Modal.Section className='Modal'>
+        <Modal.Section className='Modal' onClick={setModalClose}>
           <Modal.Container className='Modal__container'>{children}</Modal.Container>
         </Modal.Section>
       )}
@@ -19,7 +27,7 @@ const ModalView: React.FC<ModalViewPropType> = ({ children }) => {
 };
 
 // PARAM type
-interface ModalViewPropType {
+export interface ModalViewPropType {
   children: ReactNode;
 }
 
