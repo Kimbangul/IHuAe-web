@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import indexStore, { indexAction } from '@/redux';
+import TodayFeelModalView from '@/components/common/modal/content/TodayFeelModalView';
 
 // COMPONENT
 const HomeHeaderView = () => {
@@ -20,7 +21,13 @@ const HomeHeaderView = () => {
           <Header.Qusetion.Button
             className='Home__question-btn'
             onClick={() => {
-              dispatch(indexAction.setModalContent(<></>));
+              dispatch(
+                indexAction.setModalContent(
+                  <>
+                    <TodayFeelModalView />
+                  </>
+                )
+              );
             }}
           >
             기록하기

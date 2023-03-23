@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { indexAction } from '@/redux';
 
-const ModalView: React.FC<ModalViewPropType> = ({ children }) => {
+const ModalView: React.FC = () => {
   const rootState = useSelector((state: RootStateType) => state);
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const ModalView: React.FC<ModalViewPropType> = ({ children }) => {
     <>
       {rootState.ui.modal !== false && (
         <Modal.Section className='Modal' onClick={setModalClose}>
-          <Modal.Container className='Modal__container'>{children}</Modal.Container>
+          <Modal.Container className='Modal__container'>{rootState.ui.modal}</Modal.Container>
         </Modal.Section>
       )}
     </>
@@ -27,9 +27,9 @@ const ModalView: React.FC<ModalViewPropType> = ({ children }) => {
 };
 
 // PARAM type
-export interface ModalViewPropType {
-  children: ReactNode;
-}
+// export interface ModalViewPropType {
+//   children: ReactNode;
+// }
 
 // COMPONENT style
 const Modal = {
