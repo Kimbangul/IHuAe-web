@@ -44,7 +44,7 @@ const Modal = {
     z-index: 99;
     width: 100%;
     height: 100%;
-    ${({ theme }) => theme.animation.fadeIn('0.2s')};
+    ${({ theme }) => theme.animation.fadeIn({ name: 'modalFadeIn', duration: '0.2s' })};
   `,
   Container: styled.div`
     padding: 1.8rem 2rem;

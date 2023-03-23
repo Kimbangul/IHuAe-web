@@ -1,5 +1,6 @@
 import { duration } from 'moment';
 import { css } from 'styled-components';
+import { fadeInParamType } from './animation';
 
 export const color = {
   main: {
@@ -51,8 +52,8 @@ export const font = {
 };
 
 export const animation = {
-  fadeIn: (duration: string, direction: string = 'linear', count: string = '1') => css`
-    @keyframes fadeInAni {
+  fadeIn: ({ name, duration, count, direction }: fadeInParamType) => css`
+    @keyframes fadeInAni${name} {
       0% {
         opacity: 0;
       }
@@ -60,7 +61,7 @@ export const animation = {
         opacity: 100%;
       }
     }
-    animation: fadeInAni ${duration} ${count} ${direction};
+    animation: ${'fadeInAni' + name} ${duration} ${count} ${direction};
   `,
 };
 
