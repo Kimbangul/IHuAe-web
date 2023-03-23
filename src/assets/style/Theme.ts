@@ -1,4 +1,3 @@
-import { duration } from 'moment';
 import { css } from 'styled-components';
 import { fadeInParamType } from './animation';
 
@@ -33,19 +32,19 @@ export const layout = {
 export const font = {
   sans: {
     light: css`
-      font-family: 'SpoqaHanSansNeo-Light';
+      font-family: 'SpoqaHanSansNeo';
       font-weight: 200;
     `,
     regular: css`
-      font-family: 'SpoqaHanSansNeo-Regular';
+      font-family: 'SpoqaHanSansNeo';
       font-weight: 400;
     `,
     medium: css`
-      font-family: 'SpoqaHanSansNeo-Medium';
+      font-family: 'SpoqaHanSansNeo';
       font-weight: 500;
     `,
     bold: css`
-      font-family: 'SpoqaHanSansNeo-Bold';
+      font-family: 'SpoqaHanSansNeo';
       font-weight: 600;
     `,
   },
