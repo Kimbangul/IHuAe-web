@@ -1,3 +1,4 @@
+import { duration } from 'moment';
 import { css } from 'styled-components';
 
 export const color = {
@@ -49,10 +50,25 @@ export const font = {
   },
 };
 
+export const animation = {
+  fadeIn: (duration: string, direction: string = 'linear', count: string = '1') => css`
+    @keyframes fadeInAni {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 100%;
+      }
+    }
+    animation: fadeInAni ${duration} ${count} ${direction};
+  `,
+};
+
 const theme = {
   color,
   layout,
   font,
+  animation,
 };
 
 export default theme;
