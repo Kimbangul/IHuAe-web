@@ -10,8 +10,7 @@ const ModalView: React.FC = () => {
 
   /** FUNCTION 기록하기 버튼 클릭 시 실행 */
   const setModalClose = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e.target);
-    console.log(indexAction.setModalClose);
+    if (e.target !== e.currentTarget) return;
     dispatch(indexAction.setModalClose());
   };
 

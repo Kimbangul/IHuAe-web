@@ -6,6 +6,6 @@ interface baseAniParamType {
 }
 
 interface fadeInParamType extends baseAniParamType {
-  direction: string;
-  count: string;
+  direction?: string;
+  count?: string;
 }

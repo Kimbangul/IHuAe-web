@@ -51,8 +51,8 @@ export const font = {
 };
 
 export const animation = {
-  fadeIn: ({ name, duration, count, direction }: fadeInParamType) => css`
-    @keyframes fadeInAni${name} {
+  fadeIn: (param: fadeInParamType) => css`
+    @keyframes fadeInAni${param.name} {
       0% {
         opacity: 0;
       }
@@ -60,7 +60,7 @@ export const animation = {
         opacity: 100%;
       }
     }
-    animation: ${'fadeInAni' + name} ${duration} ${count} ${direction};
+    animation: ${'fadeInAni' + param.name} ${param.duration} ${param.count} ${param.direction};
   `,
 };
 
