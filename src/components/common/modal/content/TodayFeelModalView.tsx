@@ -1,17 +1,29 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { indexAction } from '@/redux';
+import TodayFeelIconContainer from './TodayFeelIcon';
+import todayFeelData from './todayFeelData';
 
 import CLOSE_17 from '@/assets/icons/home/close_17.svg';
 
 const TodayFeelModalView = () => {
+  const dispatch = useDispatch();
+  const [todayFeel, setTodayFeel] = useState<null | string>(null);
+
   return (
     <div className='Modal__inner'>
-      <Modal.Close.Btn className='Modal__close-btn'>
+      <Modal.Close.Btn
+        className='Modal__close-btn'
+        onClick={() => {
+          dispatch(indexAction.setModalClose());
+        }}
+      >
         <CLOSE_17 />
       </Modal.Close.Btn>
       <Modal.Text>오늘은 어떤 기분이 드나요?</Modal.Text>
       <Modal.List.Container>
-        <li className=''></li>
+        <TodayFeelIconContainer todayFeel={todayFeel} setTodayFeel={setTodayFeel} list={todayFeelData} />
       </Modal.List.Container>
       <Modal.Input type='text' placeholder='추가로 느끼는 감정을 작성해보세요' />
       <Modal.Button>선택 완료</Modal.Button>
@@ -53,6 +65,7 @@ const Modal = {
       display: block;
       margin-left: auto;
       margin-right: 0;
+      cursor: pointer;
     `,
   },
   Button: styled.button`
