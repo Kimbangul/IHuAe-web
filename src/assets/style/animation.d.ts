@@ -1,11 +1,11 @@
-import { ThemedCssFunction } from 'styled-components';
+type DirectionType = 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
 
-interface baseAniParamType {
+interface BaseAniParamType {
   name: string;
   duration: string;
 }
 
-interface fadeInParamType extends baseAniParamType {
-  direction?: string;
+interface FadeInParamType extends BaseAniParamType {
+  direction?: directionType;
   count?: string;
 }

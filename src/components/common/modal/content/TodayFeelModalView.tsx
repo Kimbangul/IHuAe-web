@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+import CLOSE_17 from '@/assets/icons/home/close_17.svg';
+
 const TodayFeelModalView = () => {
   return (
     <div className='Modal__inner'>
-      <div className='Modal__close-container'></div>
+      <Modal.Close.Btn className='Modal__close-btn'>
+        <CLOSE_17 />
+      </Modal.Close.Btn>
       <Modal.Text>오늘은 어떤 기분이 드나요?</Modal.Text>
       <Modal.List.Container>
         <li className=''></li>
@@ -42,6 +46,15 @@ const Modal = {
       color: #b3b3b3;
     }
   `,
+  Close: {
+    Btn: styled.button`
+      width: 1.7rem;
+      height: 1.8rem;
+      display: block;
+      margin-left: auto;
+      margin-right: 0;
+    `,
+  },
   Button: styled.button`
     display: block;
     color: ${({ theme }) => theme.color.main.main};

@@ -46,6 +46,7 @@ const Nav = {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0.5rem;
     }
     path {
       ${({ active }) =>

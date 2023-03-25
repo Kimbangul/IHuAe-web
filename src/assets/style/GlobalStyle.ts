@@ -33,6 +33,20 @@ html {
   font-size: 62.5%;
   transition: font-size 0.3s;
 
+  @media (min-width: 481px){
+    font-size: 83.32%;
+  }
+
+  @media (min-width: 641px){
+    font-size: 111.1%;
+  }
+
+  @media (min-width: 721px){
+    font-size: 124.9%;
+  }
+
+
+
   /* @media (max-width: 361px) {
     font-size: 50% !important;
 

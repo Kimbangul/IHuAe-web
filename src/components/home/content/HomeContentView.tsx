@@ -87,6 +87,8 @@ const Card = {
 const NavBtn = {
   Container: styled.button<{ direction: DirectionType }>`
     position: absolute;
+    width: 1.3rem;
+    height: 1.8rem;
     top: 50%;
     left: 0.9rem;
     transform: translateY(-50%);
