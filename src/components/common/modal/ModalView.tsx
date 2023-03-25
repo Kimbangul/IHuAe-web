@@ -25,11 +25,6 @@ const ModalView: React.FC = () => {
   );
 };
 
-// PARAM type
-// export interface ModalViewPropType {
-//   children: ReactNode;
-// }
-
 // COMPONENT style
 const Modal = {
   Section: styled.section`

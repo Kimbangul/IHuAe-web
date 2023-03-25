@@ -45,6 +45,11 @@ const Modal = {
   `,
   List: {
     Container: styled.ul`
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1.2rem 0;
+      justify-content: space-between;
+      padding: 0 0.6rem;
       margin-top: 2.5rem;
     `,
   },
@@ -54,6 +59,7 @@ const Modal = {
     border: 0.1rem solid #b3b3b3;
     border-radius: 1rem;
     font-size: 1.4rem;
+    margin-top: 3.7rem;
     &::placeholder {
       color: #b3b3b3;
     }
