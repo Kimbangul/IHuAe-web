@@ -4,7 +4,7 @@ import indexStore, { indexAction } from '@/redux';
 import TodayFeelModalView from '@/components/common/modal/content/TodayFeelModalView';
 
 // COMPONENT
-const HomeHeaderView = () => {
+const HomeHeaderView = ({ feelText }: HomeHeaderViewPropsType) => {
   const dispatch = useDispatch();
 
   return (
@@ -13,7 +13,7 @@ const HomeHeaderView = () => {
         <Header.Today.Container className='Home__today'>
           <Header.Today.Date className='Home__today-date'>D+4</Header.Today.Date>
           <Header.Today.Desc className='Home__today-desc'>
-            오늘의 기분을 표현해보세요 <Header.Today.Icon className='Home__today-icon'></Header.Today.Icon>
+            {feelText} <Header.Today.Icon className='Home__today-icon'></Header.Today.Icon>
           </Header.Today.Desc>
         </Header.Today.Container>
         <Header.Qusetion.Container className='Home__qusetion'>
@@ -98,5 +98,10 @@ const Header = {
     `,
   },
 };
+
+// PARAM type
+interface HomeHeaderViewPropsType {
+  feelText: string;
+}
 
 export default HomeHeaderView;
