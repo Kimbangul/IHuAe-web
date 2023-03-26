@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import indexStore, { indexAction } from '@/redux';
+import indexStore, { indexAction, RootStateType } from '@/redux';
 import TodayFeelModalView from '@/components/common/modal/content/TodayFeelModalView';
 
 // COMPONENT
-const HomeHeaderView = ({ feelText }: HomeHeaderViewPropsType) => {
+const HomeHeaderView = ({ feelText, feelStyle }: HomeHeaderViewPropsType) => {
   const dispatch = useDispatch();
+  const rootState = useSelector((state: RootStateType) => state);
 
   return (
     <>
@@ -13,7 +14,7 @@ const HomeHeaderView = ({ feelText }: HomeHeaderViewPropsType) => {
         <Header.Today.Container className='Home__today'>
           <Header.Today.Date className='Home__today-date'>D+4</Header.Today.Date>
           <Header.Today.Desc className='Home__today-desc'>
-            {feelText} <Header.Today.Icon className='Home__today-icon'></Header.Today.Icon>
+            {feelText} <Header.Today.Icon className='Home__today-icon' feelStyle={feelStyle}></Header.Today.Icon>
           </Header.Today.Desc>
         </Header.Today.Container>
         <Header.Qusetion.Container className='Home__qusetion'>
@@ -66,12 +67,12 @@ const Header = {
       font-size: 1.2rem;
       cursor: pointer;
     `,
-    Icon: styled.span`
+    Icon: styled.span<{ feelStyle: null | string }>`
       display: inline-block;
-      border: 0.2rem dashed ${({ theme }) => theme.color.main.main};
       border-radius: 100%;
       width: 2.7rem;
       height: 2.7rem;
+      ${(props) => props.feelStyle};
     `,
   },
   Qusetion: {
@@ -102,6 +103,7 @@ const Header = {
 // PARAM type
 interface HomeHeaderViewPropsType {
   feelText: string;
+  feelStyle: null | string;
 }
 
 export default HomeHeaderView;
