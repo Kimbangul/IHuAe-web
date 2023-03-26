@@ -19,4 +19,5 @@ const ContentSlice = createSlice({
   },
 });
 
+export const { setTodayFeel, setTodayFeelDesc, setReset } = ContentSlice.actions;
 export default ContentSlice;

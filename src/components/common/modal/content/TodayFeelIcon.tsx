@@ -83,13 +83,13 @@ export interface TodayFeelIconBaseType {
 
 interface TodayFeelIconPropsType extends TodayFeelIconBaseType {
   todayFeel: string | null;
-  setTodayFeel: Dispatch<SetStateAction<string | null>>;
+  setTodayFeel: Dispatch<SetStateAction<string>>;
 }
 
 interface TodayFeelIconContainerPropsType {
   list: TodayFeelIconBaseType[];
   todayFeel: string | null;
-  setTodayFeel: Dispatch<SetStateAction<string | null>>;
+  setTodayFeel: Dispatch<SetStateAction<string>>;
 }
 
 export default TodayFeelIconContainer;
