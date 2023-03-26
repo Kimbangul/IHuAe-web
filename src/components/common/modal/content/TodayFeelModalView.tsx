@@ -9,7 +9,16 @@ import CLOSE_17 from '@/assets/icons/home/close_17.svg';
 
 const TodayFeelModalView = () => {
   const dispatch = useDispatch();
-  const [todayFeel, setTodayFeel] = useState<null | string>(null);
+  const [todayFeel, setTodayFeel] = useState<null | string>('');
+  const [feelDesc, setFeelDesc] = useState('');
+
+  // FUNCTION 제출버튼 선택 시
+  const onSubmit = () => {
+    if ([todayFeel, feelDesc].includes('') || [todayFeel, feelDesc].includes(null)) {
+      alert('입력되지 않은 값이 존재합니다.');
+      return;
+    }
+  };
 
   return (
     <div className='Modal__inner'>
@@ -25,8 +34,8 @@ const TodayFeelModalView = () => {
       <Modal.List.Container>
         <TodayFeelIconContainer todayFeel={todayFeel} setTodayFeel={setTodayFeel} list={todayFeelData} />
       </Modal.List.Container>
-      <Modal.Input type='text' placeholder='추가로 느끼는 감정을 작성해보세요' />
-      <Modal.Button>선택 완료</Modal.Button>
+      <Modal.Input type='text' placeholder='추가로 느끼는 감정을 작성해보세요' value={feelDesc} onChange={(e) => setFeelDesc(e.target.value)} />
+      <Modal.Button onClick={onSubmit}>선택 완료</Modal.Button>
     </div>
   );
 };
