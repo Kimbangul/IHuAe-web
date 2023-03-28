@@ -1,9 +1,8 @@
 import moment from 'moment';
 import leftPad from '@/utils/leftPad';
-import { current } from '@reduxjs/toolkit';
 
 // CLASS 날짜 정보 생성자
-class DateInfo {
+export class DateInfo {
   date: moment.Moment;
   currentMonth: boolean;
 
@@ -20,7 +19,7 @@ const makeMonthCalendar = (year: number, month: number) => {
   const firstDay = moment().startOf('month'); //.day();
 
   const calenderArr = [];
-  let weekArr = Array(7).fill('');
+  let weekArr: DateInfo[] = Array(7).fill('');
   let dayIndex = firstDay.day();
 
   // 이전 달 날짜 출력
@@ -29,6 +28,7 @@ const makeMonthCalendar = (year: number, month: number) => {
 
     for (let i = dayIndex - 1; i >= 0; i--) {
       weekArr[i] = new DateInfo(lastMonthLastDate, false);
+      console.log(weekArr[i].date.format('MM.DD'));
     }
 
     lastMonthLastDate = lastMonthLastDate.subtract('days', 1);
@@ -38,18 +38,27 @@ const makeMonthCalendar = (year: number, month: number) => {
   for (let date = 1; date < Number(lastDate.format('DD')); date++) {
     let day = firstDay.add('days', date);
     weekArr[dayIndex] = new DateInfo(day, false);
+    console.log(weekArr[dayIndex].date.format('MM.DD'));
 
-    if (dayIndex === 6) {
-      break;
-    }
-    // 마지막 인덱스일 경우
+    // 다음 달 날짜 출력
     if (date === lastDate.day()) {
+      let nextMonthDate = lastDate.add('days', 1);
       for (let i = lastDate.day() + 1; i <= 6; i++) {
-        let nextMonthDate = lastDate.add('days', i);
         weekArr[dayIndex] = new DateInfo(nextMonthDate, false);
       }
+      nextMonthDate = nextMonthDate.add('days', 1);
     }
+
+    if (dayIndex === 6) {
+      // week 배열이 다 찼을 경우 calendarArr에 push하고 week 배열 초기화
+      calenderArr.push(weekArr);
+      weekArr = Array(7).fill('');
+      dayIndex = 0;
+      break;
+    }
+    dayIndex++;
   }
+  return calenderArr;
 };
 
 export default makeMonthCalendar;
