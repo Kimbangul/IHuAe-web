@@ -1,5 +1,6 @@
 import moment from 'moment';
 import leftPad from '@/utils/leftPad';
+import { is } from 'immer/dist/internal';
 
 // CLASS 날짜 정보 생성자
 export class DateInfo {
@@ -12,53 +13,52 @@ export class DateInfo {
   }
 }
 
+const chunkArr = (data: [], size: number) => {
+  const arr = [];
+  for (let i = 0; i < data.length; i += size) {
+    arr.push(data.slice(i, i + size));
+  }
+  return arr;
+};
+
 const makeMonthCalendar = (year: number, month: number) => {
   // PARAM 이번 달 마지막 날짜
-  const lastDate = moment().endOf('month'); // .format('DD')
+  const lastDate = moment().endOf('month').startOf('days'); // .format('DD')
   // PARAM 이번 달 첫번째 날짜 요일
-  const firstDay = moment().startOf('month'); //.day();
+  const firstDate = moment().startOf('month').startOf('days'); //.day();
 
-  const calenderArr = [];
-  let weekArr: DateInfo[] = Array(7).fill('');
-  let dayIndex = firstDay.day();
+  const calenderArr: DateInfo[] = [];
+  let dayIndex = firstDate.day();
 
-  // 이전 달 날짜 출력
-  if (dayIndex !== 0) {
-    let lastMonthLastDate = firstDay.subtract('days', 1);
+  const addCalendar = (baseDate: moment.Moment, addDate: number, isCurrentMonth: boolean) => {
+    let day = moment(baseDate).add('days', addDate);
+    calenderArr.push(new DateInfo(day, isCurrentMonth));
+  };
 
-    for (let i = dayIndex - 1; i >= 0; i--) {
-      weekArr[i] = new DateInfo(lastMonthLastDate, false);
-      console.log(weekArr[i].date.format('MM.DD'));
-    }
-
-    lastMonthLastDate = lastMonthLastDate.subtract('days', 1);
+  // FUNCTION 지난달 날짜 구하기
+  for (let i = dayIndex; i >= 0; i--) {
+    addCalendar(firstDate, -i, false);
   }
 
-  // 이번 달 날짜 출력
-  for (let date = 1; date < Number(lastDate.format('DD')); date++) {
-    let day = firstDay.add('days', date);
-    weekArr[dayIndex] = new DateInfo(day, false);
-    console.log(weekArr[dayIndex].date.format('MM.DD'));
-
-    // 다음 달 날짜 출력
-    if (date === lastDate.day()) {
-      let nextMonthDate = lastDate.add('days', 1);
-      for (let i = lastDate.day() + 1; i <= 6; i++) {
-        weekArr[dayIndex] = new DateInfo(nextMonthDate, false);
-      }
-      nextMonthDate = nextMonthDate.add('days', 1);
-    }
-
-    if (dayIndex === 6) {
-      // week 배열이 다 찼을 경우 calendarArr에 push하고 week 배열 초기화
-      calenderArr.push(weekArr);
-      weekArr = Array(7).fill('');
-      dayIndex = 0;
-      break;
-    }
-    dayIndex++;
+  // FUNCTION 이번달 날짜 구하기
+  for (let i = 0; i <= Number(lastDate.format('DD')) - 1; i++) {
+    addCalendar(firstDate, i, true);
   }
+
+  // FUNCTION 다음달 날짜 구하기
+  for (let i = 0; i <= 6 - lastDate.day(); i++) {
+    addCalendar(lastDate, i, false);
+  }
+
+  console.log(calenderArr);
   return calenderArr;
 };
+
+// PARAM type
+interface addCalendarParamType {
+  baseDate: moment.Moment;
+  addDate: number;
+  isCurrentMonth: boolean;
+}
 
 export default makeMonthCalendar;
