@@ -1,6 +1,5 @@
 import moment from 'moment';
 import leftPad from '@/utils/leftPad';
-import { is } from 'immer/dist/internal';
 
 // CLASS 날짜 정보 생성자
 export class DateInfo {
@@ -13,7 +12,7 @@ export class DateInfo {
   }
 }
 
-const chunkArr = (data: [], size: number) => {
+const chunkArr = (data: any[], size: number) => {
   const arr = [];
   for (let i = 0; i < data.length; i += size) {
     arr.push(data.slice(i, i + size));
@@ -23,11 +22,12 @@ const chunkArr = (data: [], size: number) => {
 
 const makeMonthCalendar = (year: number, month: number) => {
   // PARAM 이번 달 마지막 날짜
-  const lastDate = moment().endOf('month').startOf('days'); // .format('DD')
+  const lastDate = moment(`${year}.${month}.01`).endOf('month').startOf('days'); // .format('DD')
   // PARAM 이번 달 첫번째 날짜 요일
-  const firstDate = moment().startOf('month').startOf('days'); //.day();
+  const firstDate = moment(`${year}.${month}.01`).startOf('month').startOf('days'); //.day();
 
   const calenderArr: DateInfo[] = [];
+  let result : DateInfo[][];
   let dayIndex = firstDate.day();
 
   const addCalendar = (baseDate: moment.Moment, addDate: number, isCurrentMonth: boolean) => {
@@ -36,7 +36,7 @@ const makeMonthCalendar = (year: number, month: number) => {
   };
 
   // FUNCTION 지난달 날짜 구하기
-  for (let i = dayIndex; i >= 0; i--) {
+  for (let i = dayIndex; i > 0; i--) {
     addCalendar(firstDate, -i, false);
   }
 
@@ -46,12 +46,14 @@ const makeMonthCalendar = (year: number, month: number) => {
   }
 
   // FUNCTION 다음달 날짜 구하기
-  for (let i = 0; i <= 6 - lastDate.day(); i++) {
+  for (let i = 1; i <= 6 - lastDate.day(); i++) {
     addCalendar(lastDate, i, false);
   }
 
-  console.log(calenderArr);
-  return calenderArr;
+  result = chunkArr(calenderArr, 7);
+
+  console.log(result);
+  return result;
 };
 
 // PARAM type

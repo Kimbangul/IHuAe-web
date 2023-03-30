@@ -8,8 +8,16 @@ const CalendarView = () => {
   return (
     <>
       <Header title='캘린더' />
-      {thisMonthCalendar.map((day) => {
-        return <span key={day.date.format('YYYY.MM.DD')}>{day.date.format('MM.DD')}</span>;
+      {thisMonthCalendar.map((week, idx) => {
+        return (
+         <div key={`week${idx}`}>
+          {
+             week.map(day => {
+              return <span data-current={day.currentMonth} key={day.date.format('YYYY.MM.DD')}>{day.date.format('MM.DD')}</span>
+              })
+          }
+         </div>
+        )        
       })}
     </>
   );
