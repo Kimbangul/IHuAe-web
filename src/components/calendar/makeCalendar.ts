@@ -1,5 +1,5 @@
 import moment from 'moment';
-import leftPad from '@/utils/leftPad';
+import {chunkArr} from '@/utils';
 
 // CLASS 날짜 정보 생성자
 export class DateInfo {
@@ -12,13 +12,6 @@ export class DateInfo {
   }
 }
 
-const chunkArr = (data: any[], size: number) => {
-  const arr = [];
-  for (let i = 0; i < data.length; i += size) {
-    arr.push(data.slice(i, i + size));
-  }
-  return arr;
-};
 
 const makeMonthCalendar = (year: number, month: number) => {
   // PARAM 이번 달 마지막 날짜
@@ -51,8 +44,6 @@ const makeMonthCalendar = (year: number, month: number) => {
   }
 
   result = chunkArr(calenderArr, 7);
-
-  console.log(result);
   return result;
 };
 
