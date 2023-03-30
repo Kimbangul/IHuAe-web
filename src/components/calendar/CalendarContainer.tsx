@@ -4,12 +4,12 @@ import { CalendarInfoType, CalendarActionType } from "./CalendarType";
 import CalendarView from "./CalendarView"
 
 const CalendarContainer = () => {
-  // PARAM state
+  // PARAM calendar initial state
   const initialCalendarState = {
     year: moment().year(),
     month: moment().month() + 1,
   };
-
+  // FUNCTION calendar reducer
   const calendarReducer = (state : CalendarInfoType, action : CalendarActionType) => {
     let newYear : number;
     let newMonth : number;
@@ -37,9 +37,7 @@ const CalendarContainer = () => {
         return {year: newYear, month: newMonth}               
     }
   }
-
-
-
+  
   const [calendarInfo, setCalendarInfo] = useReducer(calendarReducer, initialCalendarState);
 
 
