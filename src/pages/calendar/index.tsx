@@ -1,11 +1,11 @@
 import PageWrapper from '@/components/common/PageWrapper';
-import CalendarView from '@/components/calendar/CalendarView';
+import CalendarContainer from '@/components/calendar/CalendarContainer';
 
 export default function Calendar() {
   return (
     <>
       <PageWrapper>
-        <CalendarView />
+        <CalendarContainer />
       </PageWrapper>
     </>
   );

@@ -45,3 +45,8 @@ test('check subtract', () => {
 
   expect(lastDateToString).toBe(31);
 });
+
+
+test('test type', ()=>{
+  expect(moment().month()).toBe(3)
+})
