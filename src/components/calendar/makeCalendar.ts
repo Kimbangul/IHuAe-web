@@ -24,7 +24,7 @@ const makeMonthCalendar = (year: number, month: number) => {
   let dayIndex = firstDate.day();
 
   const addCalendar = (baseDate: moment.Moment, addDate: number, isCurrentMonth: boolean) => {
-    let day = moment(baseDate).add('days', addDate);
+    let day = moment(baseDate).add(addDate, 'days');
     calenderArr.push(new DateInfo(day, isCurrentMonth));
   };
 

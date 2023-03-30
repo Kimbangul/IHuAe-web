@@ -5,7 +5,7 @@ export interface CalendarInfoType {
   month: number,  
 }
 
-export interface CalendarActionType extends DispatchWithoutAction {
+export interface CalendarActionType {
   type: 'INCREASE_YEAR' | 'DECREASE_YEAR' | 'INCREASE_MONTH' | 'DECREASE_MONTH'
 }
 

@@ -11,15 +11,30 @@ const CalendarContainer = () => {
   };
 
   const calendarReducer = (state : CalendarInfoType, action : CalendarActionType) => {
+    let newYear : number;
+    let newMonth : number;
+
     switch(action.type){ 
-      case 'INCREASE_YEAR':      
+      case 'INCREASE_YEAR': 
         return {...state, year: state.year + 1}
       case 'DECREASE_YEAR':
         return {...state, year: state.year - 1}
       case 'INCREASE_MONTH':
-        return {...state, month: state.month + 1}
+        newMonth = state.month + 1;
+        newYear = state.year;
+        if (newMonth > 12) {          
+          newMonth = 1;
+          newYear = newYear + 1;
+        }
+        return {year: newYear, month: newMonth}
       case 'DECREASE_MONTH':
-        return {...state, month: state.month - 1}               
+        newMonth = state.month - 1;
+        newYear = state.year;
+        if (newMonth < 1){
+          newMonth = 12;
+          newYear = newYear - 1;
+        }
+        return {year: newYear, month: newMonth}               
     }
   }
 

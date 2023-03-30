@@ -9,10 +9,10 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
     <>
       <Header title='캘린더' />
       <div>{year}년 {month}월</div>
-      <button onClick={() => {}}>년도 +1</button>
-      <button>년도 -1</button>
-      <button>월 +1</button>
-      <button>월 -1</button>
+      <button onClick={() => setCalendarInfo({type: 'INCREASE_YEAR'})}>년도 +1</button>
+      <button onClick={() => setCalendarInfo({type: 'DECREASE_YEAR'})}>년도 -1</button>
+      <button onClick={()=>setCalendarInfo({type: 'INCREASE_MONTH'})}>월 +1</button>
+      <button onClick={() => setCalendarInfo({type: 'DECREASE_MONTH'})}>월 -1</button>
       {thisMonthCalendar.map((week, idx) => {
         return (
          <div key={`week${idx}`}>
