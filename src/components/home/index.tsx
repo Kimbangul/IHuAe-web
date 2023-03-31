@@ -13,7 +13,6 @@ const Home = () => {
 
 // COMPONENT style
 const HomeContainer = styled.section`
-  height: 100%;
   background: ${({ theme }) => theme.color.bg.bg_01};
 `;
 
