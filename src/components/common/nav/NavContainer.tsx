@@ -13,8 +13,8 @@ const NavContainer = () => {
   const navMenu = [
     { link: '/', title: 'home', icon: <HOME_30 /> },
     { link: '/calendar', title: 'calendar', icon: <CALENDAR_30 /> },
-    { link: '/diary', title: 'diary', icon: <MESSAGE_30 /> },
-    { link: '/chat', title: 'chat', icon: <PEN_33 /> },
+    { link: '/diary', title: 'diary', icon: <PEN_33 /> },
+    { link: '/chat', title: 'chat', icon: <MESSAGE_30 /> },
   ];
 
   // FUNCTION get path

@@ -21,7 +21,16 @@ const Hd = {
     background: ${({ theme }) => theme.color.white};
     ${({ theme }) => theme.font.sans.medium};   
   `,
-  Back: styled.button``,
+  Back: styled.button`
+    width: 2.4rem;
+    height: 100%;
+    transform: translateX(-0.6rem);
+    cursor: pointer;
+    svg{
+      width: 0.9rem;
+      height: 1.3rem;
+    }
+  `,
   Menu: {
     Container: styled.div``,
   },

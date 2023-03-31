@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import Header from '../common/Header';
+import Header from '@/components/common/Header';
 import makeMonthCalendar from './makeCalendar';
 import { CalendarViewParamType } from './CalendarType';
 import { Calendar, Feel } from './CalendarStyle';

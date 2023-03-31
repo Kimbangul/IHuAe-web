@@ -3,11 +3,14 @@ import Page from './PageWrapperStyle';
 import NavContainer from '@/components/common/nav/NavContainer';
 
 // COMPONENT
-const PageWrapper: React.FC<PageWrapperPropsType> = ({ children }) => {
+const PageWrapper: React.FC<PageWrapperPropsType> = ({ children, hideBottomTab }) => {
   return (
     <Page.Container className='Page'>
       <Page.Inner className='Page__inner'>{children}</Page.Inner>
-      <NavContainer />
+      {
+        hideBottomTab !== false &&
+        <NavContainer />
+      }
     </Page.Container>
   );
 };
@@ -15,6 +18,7 @@ const PageWrapper: React.FC<PageWrapperPropsType> = ({ children }) => {
 // PARAM type
 interface PageWrapperPropsType {
   children: ReactNode;
+  hideBottomTab?: false;
 }
 
 
