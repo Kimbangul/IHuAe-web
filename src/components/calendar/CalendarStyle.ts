@@ -1,4 +1,5 @@
 import styled, {css} from "styled-components";
+import Header from '@/components/home/header/HomeHeaderStyle';
 
 export const Calendar= {
   Wrap: styled.div`
@@ -70,4 +71,33 @@ export const Feel = {
     color: ${({theme}) => theme.color.text.text_09};    
     ${({theme}) => theme.font.sans.bold};
   `,
+  Content: {
+    Container: styled.div`
+     background:  ${({theme}) => theme.color.white};
+     border-radius: 0.8rem;
+     box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.14);
+     margin-top: 1.6rem;
+     padding: 2rem;
+     cursor: pointer;
+    `,
+    Title: styled.div`
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    `,
+    TitleText: styled.p`
+      font-size: 1.4rem;
+      color: ${({theme}) => theme.color.text.text_09};
+    `,
+    Icon: styled(Header.Today.Icon)`
+      width: 4.6rem;
+      height: 4.6rem;
+    `,
+    Desc: styled.p`
+     font-size: 1.4rem;
+     margin-top: 2.2rem;
+     min-height: 3.6rem;
+     color: ${({theme}) => theme.color.text.text_09};
+    `,
+  }
 }

@@ -45,13 +45,13 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
       </Calendar.Calendar.Container>
       <Feel.Container>
       <Feel.Title>오늘의 기분</Feel.Title>
-      <div>
-        <div>
-          <span></span>
-          <p>오늘은 어떤 기분이 드나요?</p>
-        </div>
-        <p>{`(기분에 대해서 기록해보세요)`}</p>
-      </div>
+      <Feel.Content.Container>
+        <Feel.Content.Title>
+          <Feel.Content.Icon feelStyle={null}></Feel.Content.Icon>
+          <Feel.Content.TitleText>오늘은 어떤 기분이 드나요?</Feel.Content.TitleText>
+        </Feel.Content.Title>
+        <Feel.Content.Desc>{`(기분에 대해서 기록해보세요)`}</Feel.Content.Desc>
+      </Feel.Content.Container>
       </Feel.Container>
       </Calendar.Content>
     </Calendar.Wrap>
