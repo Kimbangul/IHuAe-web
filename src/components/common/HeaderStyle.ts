@@ -17,9 +17,9 @@ const Hd = {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    color: ${({ theme }) => theme.color.text.text_09};
     background: ${({ theme }) => theme.color.white};
-    ${({ theme }) => theme.font.sans.medium};
-    ${({ theme }) => theme.color.text.text_09};
+    ${({ theme }) => theme.font.sans.medium};   
   `,
   Back: styled.button``,
   Menu: {

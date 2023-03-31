@@ -1,16 +1,20 @@
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+
 import Header from '../common/Header';
 import makeMonthCalendar from './makeCalendar';
 import { CalendarViewParamType } from './CalendarType';
 import { Calendar, Feel } from './CalendarStyle';
 import CHEVRON_12 from '@/assets/icons/calendar/chevron_12.svg';
-import { getFeelIcon } from '@/utils';
 
 
-const CalendarView = ({year, month,setCalendarInfo, feelIcon, feelState, feelDesc} : CalendarViewParamType) => {
+
+
+const CalendarView = ({year, month,setCalendarInfo, feelIcon, feelState, feelDesc, onClickTodayFeel} : CalendarViewParamType) => {
   const thisMonthCalendar = makeMonthCalendar(year, month);
+  const dispatch = useDispatch();
   const week = ['일','월','화','수', '목','금','토'];
-  console.log(feelIcon);
+
   return (
     <Calendar.Wrap>
       <Header title='캘린더' />
@@ -54,12 +58,14 @@ const CalendarView = ({year, month,setCalendarInfo, feelIcon, feelState, feelDes
       </Calendar.Calendar.Container>
       <Feel.Container>
       <Feel.Title>오늘의 기분</Feel.Title>
-      <Feel.Content.Container>
+      <Feel.Content.Container onClick={onClickTodayFeel}>
         <Feel.Content.Title>
           <Feel.Content.Icon feelIcon={feelIcon}>{feelIcon}</Feel.Content.Icon>
           <Feel.Content.TitleText>{feelState}</Feel.Content.TitleText>
         </Feel.Content.Title>
-        <Feel.Content.Desc>{feelDesc}</Feel.Content.Desc>
+        <Feel.Content.Desc>
+          {feelDesc}
+        </Feel.Content.Desc>
       </Feel.Content.Container>
       </Feel.Container>
       </Calendar.Content>

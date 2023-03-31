@@ -91,6 +91,9 @@ export const Calendar= {
       user-select: none;
       z-index: 0;
       opacity: 0.3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     `
   },
 };
@@ -129,6 +132,10 @@ export const Feel = {
       height: 4.6rem;
       display: inline-block;
       border-radius: 100%;
+      svg{
+        width: 100%;
+        height: 100%;
+      }
       ${({feelIcon}) => feelIcon === null && css`
         border: 0.2rem dashed ${({theme}) => theme.color.main.main};
       `
@@ -138,6 +145,7 @@ export const Feel = {
      font-size: 1.4rem;
      margin-top: 2.2rem;
      min-height: 3.6rem;
+     word-wrap: break-word;
      color: ${({theme}) => theme.color.text.text_09};
     `,
   }

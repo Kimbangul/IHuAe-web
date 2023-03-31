@@ -11,6 +11,7 @@ export interface CalendarActionType {
 
 export interface CalendarViewParamType extends CalendarInfoType {
   setCalendarInfo: Dispatch<CalendarActionType>;
+  onClickTodayFeel: () => void;
   feelIcon: null | ReactNode;
   feelState: string;
   feelDesc: string;

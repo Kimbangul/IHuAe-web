@@ -1,14 +1,16 @@
 import moment from "moment";
 import {  useReducer, useState, useEffect, ReactNode, useMemo } from "react";
-import { useSelector } from 'react-redux';
-import { RootStateType } from '@/redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootStateType, indexAction } from '@/redux';
 import { CalendarInfoType, CalendarActionType } from "./CalendarType";
+import TodayFeelModalView from '@/components/common/modal/content/TodayFeelModalView';
 import CalendarView from "./CalendarView";
 import { getFeelIcon } from "@/utils";
 
 
 const CalendarContainer = () => {
   const rootState = useSelector((state: RootStateType) => state);
+  const dispatch = useDispatch();
 
   // PARAM calendar initial state
   const initialCalendarState = {
@@ -42,6 +44,15 @@ const CalendarContainer = () => {
         }
         return {year: newYear, month: newMonth}               
     }
+  }
+
+  // FUNCTION 모달 열기
+  const onClickTodayFeel = () => {
+    dispatch(indexAction.setModalContent(
+      <>
+        <TodayFeelModalView />
+      </>
+    ))
   }
   
   // PARAM state, reducer
@@ -98,6 +109,7 @@ const CalendarContainer = () => {
     feelIcon= {feelIcon}
     feelState= {feelState}
     feelDesc={todayFeelDesc}
+    onClickTodayFeel={onClickTodayFeel}
    />
    )
 }

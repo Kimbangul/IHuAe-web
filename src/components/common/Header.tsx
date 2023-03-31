@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Hd from './HedaerStyle';
+import Hd from './HeaderStyle';
 
 const Header = ({ title, back, menu }: HeaderPropsType) => {
   return (
