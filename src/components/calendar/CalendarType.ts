@@ -1,4 +1,4 @@
-import { DispatchWithoutAction, Dispatch } from "react";
+import { Dispatch, ReactNode } from "react";
 
 export interface CalendarInfoType {
   year: number,
@@ -10,5 +10,8 @@ export interface CalendarActionType {
 }
 
 export interface CalendarViewParamType extends CalendarInfoType {
-  setCalendarInfo: Dispatch<CalendarActionType>
+  setCalendarInfo: Dispatch<CalendarActionType>;
+  feelIcon: null | ReactNode;
+  feelState: string;
+  feelDesc: string;
 }

@@ -1,13 +1,16 @@
+import moment from 'moment';
 import Header from '../common/Header';
 import makeMonthCalendar from './makeCalendar';
 import { CalendarViewParamType } from './CalendarType';
 import { Calendar, Feel } from './CalendarStyle';
 import CHEVRON_12 from '@/assets/icons/calendar/chevron_12.svg';
+import { getFeelIcon } from '@/utils';
 
-const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => {
+
+const CalendarView = ({year, month,setCalendarInfo, feelIcon, feelState, feelDesc} : CalendarViewParamType) => {
   const thisMonthCalendar = makeMonthCalendar(year, month);
   const week = ['일','월','화','수', '목','금','토'];
-
+  console.log(feelIcon);
   return (
     <Calendar.Wrap>
       <Header title='캘린더' />
@@ -30,9 +33,17 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
              week.map(day => {
               return (
                 <Calendar.Calendar.Date 
-                current={day.currentMonth} 
-                key={day.date.format('YYYY.MM.DD')}>
-                  {day.date.format('D')}
+                  today={day.date.format('YYYY.MM.DD') === moment().format('YYYY.MM.DD')}
+                  current={day.currentMonth} 
+                  key={day.date.format('YYYY.MM.DD')}
+                >
+                  <span className='date__number'>{day.date.format('D')}</span>
+                  {/* COMPONENT 당일일 때 아이콘 표시 */}
+                  {
+                    day.date.format('YYYY.MM.DD') === moment().format('YYYY.MM.DD') &&
+                    feelIcon !== null &&
+                    <Calendar.Calendar.TodayIcon>{feelIcon}</Calendar.Calendar.TodayIcon>
+                  }
                 </Calendar.Calendar.Date>
                 )
               })
@@ -45,10 +56,10 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
       <Feel.Title>오늘의 기분</Feel.Title>
       <Feel.Content.Container>
         <Feel.Content.Title>
-          <Feel.Content.Icon feelStyle={null}></Feel.Content.Icon>
-          <Feel.Content.TitleText>오늘은 어떤 기분이 드나요?</Feel.Content.TitleText>
+          <Feel.Content.Icon feelIcon={feelIcon}>{feelIcon}</Feel.Content.Icon>
+          <Feel.Content.TitleText>{feelState}</Feel.Content.TitleText>
         </Feel.Content.Title>
-        <Feel.Content.Desc>{`(기분에 대해서 기록해보세요)`}</Feel.Content.Desc>
+        <Feel.Content.Desc>{feelDesc}</Feel.Content.Desc>
       </Feel.Content.Container>
       </Feel.Container>
       </Calendar.Content>

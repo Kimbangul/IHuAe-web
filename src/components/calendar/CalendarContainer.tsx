@@ -1,9 +1,10 @@
 import moment from "moment";
-import {  useReducer, useState, useEffect } from "react";
+import {  useReducer, useState, useEffect, ReactNode, useMemo } from "react";
 import { useSelector } from 'react-redux';
 import { RootStateType } from '@/redux';
 import { CalendarInfoType, CalendarActionType } from "./CalendarType";
 import CalendarView from "./CalendarView";
+import { getFeelIcon } from "@/utils";
 
 
 const CalendarContainer = () => {
@@ -45,44 +46,60 @@ const CalendarContainer = () => {
   
   // PARAM state, reducer
   const [calendarInfo, setCalendarInfo] = useReducer(calendarReducer, initialCalendarState);
-  const [feelState, setFeelState] = useState('오늘의 기분을 표현해보세요');
-  const [feelStyle, setFeelStyle] = useState<null | string>(null);
+  const [feelState, setFeelState] = useState('오늘은 어떤 기분이 드나요?');
+  const [feelIcon, setFeelIcon] = useState<null | ReactNode>(null);
+
+
+  // PARAM 오늘의 기분상태
+  const todayFeelDesc = useMemo(()=>{
+    return rootState.content.todayFeelDesc !=='' ? rootState.content.todayFeelDesc : '(기분에 대해서 기록해보세요)'
+  }, [rootState.content.todayFeelDesc]);
 
   // FUNCTION 오늘의 기분 문구
   useEffect(() => {
     switch (rootState.content.todayFeel) {
       case '':
       case null:
-        setFeelState('오늘의 기분을 표현해보세요');
-        setFeelStyle(`border: 0.2rem dashed`);
+        setFeelState('오늘은 어떤 기분이 드나요?');
         break;
       case '평온':
-        setFeelState('오늘의 기분은 평온해요');
-        setFeelStyle(`background: #FAD556`);
+        setFeelState('오늘은 평온함');
+        setFeelIcon(getFeelIcon('평온').imgSrc)
         break;
       case '무덤덤':
-        setFeelState('오늘의 기분은 무덤덤해요');
-        setFeelStyle(`background: #7C6CBB`);
+        setFeelState('오늘은 무덤덤함');
+        setFeelIcon(getFeelIcon('무덤덤').imgSrc);
         break;
       case '슬픔':
-        setFeelState('오늘의 기분은 슬퍼요');
-        setFeelStyle(`background: #AED1E4`);
+        setFeelState('오늘은 슬픔');
+        setFeelIcon(getFeelIcon('슬픔').imgSrc);
         break;
       case '분노':
-        setFeelState('오늘의 기분은 화나요');
-        setFeelStyle(`background: #FF6060`);
+        setFeelState('오늘은 화남');
+        setFeelIcon(getFeelIcon('분노').imgSrc);
         break;
       case '만족':
-        setFeelState('오늘의 기분은 만족스러워요');
-        setFeelStyle(`background: #A3E4A1`);
+        setFeelState('오늘은 만족스러움');
+        setFeelIcon(getFeelIcon('만족').imgSrc);
         break;
       case '공허함':
-        setFeelState('오늘의 기분은 공허해요');
+        setFeelState('오늘은 공허함');
+        setFeelIcon(getFeelIcon('공허함').imgSrc);
         break;
     }
   }, [rootState.content.todayFeel]);
+  
 
-  return <CalendarView year={calendarInfo.year} month={calendarInfo.month} setCalendarInfo={setCalendarInfo}/>
+  return (
+    <CalendarView 
+    year={calendarInfo.year} 
+    month={calendarInfo.month}
+    setCalendarInfo={setCalendarInfo}
+    feelIcon= {feelIcon}
+    feelState= {feelState}
+    feelDesc={todayFeelDesc}
+   />
+   )
 }
 
 

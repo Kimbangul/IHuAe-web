@@ -1,5 +1,5 @@
+import { ReactNode } from "react";
 import styled, {css} from "styled-components";
-import Header from '@/components/home/header/HomeHeaderStyle';
 
 export const Calendar= {
   Wrap: styled.div`
@@ -58,18 +58,39 @@ export const Calendar= {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     `,
-    Date: styled.span<{current: boolean}>`
+    Date: styled.span<{current: boolean, today: boolean}>`
       display: inline-block;
       width: 100%;
       text-align: center;
       height: 5.2rem;
       line-height: 5.2rem;
       font-size: 1.2rem;
+      position: relative;
       color: ${({theme}) => theme.color.text.text_08};
      ${({theme}) => theme.font.sans.regular};
      ${({current}) => !current && css`
         opacity: 0;
      `};
+     ${({today}) => today && css`
+        color: #2d2d2d;
+        ${({theme}) => theme.font.sans.bold};
+     `};
+     .date__number{
+      position:relative;
+      z-index:1; 
+      }
+    `,
+    TodayIcon : styled.span`
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 100%;
+      height: 100%;
+      padding: 0.8rem;
+      user-select: none;
+      z-index: 0;
+      opacity: 0.3;
     `
   },
 };
@@ -78,6 +99,7 @@ export const Feel = {
   Container: styled.section`
    margin-top: 2.8rem;
    padding: 0 2.4rem;
+   padding-bottom: 3.2rem;
   `,
   Title: styled.h2`
     font-size: 1.4rem;
@@ -102,9 +124,15 @@ export const Feel = {
       font-size: 1.4rem;
       color: ${({theme}) => theme.color.text.text_09};
     `,
-    Icon: styled(Header.Today.Icon)`
+    Icon: styled.span<{feelIcon: null | ReactNode}>`
       width: 4.6rem;
       height: 4.6rem;
+      display: inline-block;
+      border-radius: 100%;
+      ${({feelIcon}) => feelIcon === null && css`
+        border: 0.2rem dashed ${({theme}) => theme.color.main.main};
+      `
+    };
     `,
     Desc: styled.p`
      font-size: 1.4rem;
