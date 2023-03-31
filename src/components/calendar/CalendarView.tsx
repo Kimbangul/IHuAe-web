@@ -2,6 +2,7 @@ import Header from '../common/Header';
 import makeMonthCalendar from './makeCalendar';
 import { CalendarViewParamType } from './CalendarType';
 import { Calendar, Feel } from './CalendarStyle';
+import CHEVRON_12 from '@/assets/icons/calendar/chevron_12.svg';
 
 const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => {
   const thisMonthCalendar = makeMonthCalendar(year, month);
@@ -13,13 +14,10 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
       <Calendar.Content className='contents'>
       <Calendar.Calendar.Container>
       <Calendar.Calendar.MonthInfo>
-        <button onClick={() => setCalendarInfo({type: 'DECREASE_MONTH'})}>월 -1</button>
+        <Calendar.Calendar.Button direction='prev' onClick={() => setCalendarInfo({type: 'DECREASE_MONTH'})}><CHEVRON_12 /></Calendar.Calendar.Button>
         <Calendar.Calendar.MonthText>{year}년 {month}월</Calendar.Calendar.MonthText>
-        <button onClick={()=>setCalendarInfo({type: 'INCREASE_MONTH'})}>월 +1</button>
-      </Calendar.Calendar.MonthInfo>
-      {/* <button onClick={() => setCalendarInfo({type: 'INCREASE_YEAR'})}>년도 +1</button>
-      <button onClick={() => setCalendarInfo({type: 'DECREASE_YEAR'})}>년도 -1</button>
-       */}      
+        <Calendar.Calendar.Button direction='next' onClick={()=>setCalendarInfo({type: 'INCREASE_MONTH'})}><CHEVRON_12 /></Calendar.Calendar.Button>
+      </Calendar.Calendar.MonthInfo>  
        <Calendar.Calendar.Week>
        {week.map(el => {
         return <Calendar.Calendar.WeekItem key={el}>{el}</Calendar.Calendar.WeekItem>

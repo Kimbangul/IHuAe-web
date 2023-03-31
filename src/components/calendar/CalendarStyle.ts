@@ -21,8 +21,21 @@ export const Calendar= {
     `,
     MonthInfo : styled.div`
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      padding: 0 2rem;
+    `,
+    Button: styled.button<{direction: 'prev' | 'next'}>`
+      padding: 0.8rem;
+      svg{
+        width: 1.3rem;
+        height: auto;
+      }
+      ${({direction})=> direction === 'next' &&
+        css`
+          transform: rotate(180deg);
+        ` 
+      };
     `,
     MonthText: styled.h2`
       color: ${({theme}) => theme.color.text.text_09};
