@@ -1,14 +1,13 @@
-import Image, { StaticImageData } from 'next/image';
-import SwiperCore from 'swiper';
-import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react';
-import styled, { css } from 'styled-components';
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { HomeContentPropType, SlideNavigationBtnPropType } from './HomeContentType';
+import { HomeContent,Card, NavBtn } from './HomeContentStyle';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
 import CHEVRON_8 from '@/assets/icons/home/chevron_8.svg';
-import { MouseEventHandler, MutableRefObject } from 'react';
 
 // COMPONENT main component
 const HomeContentView: React.FC<HomeContentPropType> = ({ swiperOption, card, onClickNavBtn }) => {
@@ -43,65 +42,6 @@ const SlideNavigationBtn: React.FC<SlideNavigationBtnPropType> = ({ direction, o
       <CHEVRON_8 />
     </NavBtn.Container>
   );
-};
-
-// PARAM type
-
-type OnClickNabBtnType<T> = (direction: 'prev' | 'next') => T;
-type DirectionType = 'prev' | 'next';
-
-interface HomeContentPropType {
-  swiperOption: SwiperProps;
-  card: StaticImageData[];
-  swiperRef: MutableRefObject<SwiperCore | undefined>;
-  onClickNavBtn: OnClickNabBtnType<void>;
-}
-interface SlideNavigationBtnPropType {
-  direction: DirectionType;
-  onClickNavBtn: OnClickNabBtnType<void> & MouseEventHandler;
-}
-
-// COMPONENT style
-const HomeContent = {
-  Container: styled.div`
-    padding: 2.4rem 3.2rem;
-    position: relative;
-  `,
-};
-const Card = {
-  Container: styled.div`
-    width: 100%;
-    position: relative;
-
-    span {
-      position: unset !important;
-    }
-
-    img {
-      object-fit: contain !important;
-      position: relative !important;
-      height: auto !important;
-    }
-  `,
-};
-const NavBtn = {
-  Container: styled.button<{ direction: DirectionType }>`
-    position: absolute;
-    width: 1.3rem;
-    height: 1.8rem;
-    top: 50%;
-    left: 0.9rem;
-    transform: translateY(-50%);
-
-    ${({ direction }) =>
-      direction === 'prev'
-        ? null
-        : css`
-            left: unset;
-            right: 0.9rem;
-            transform: translateY(-50%) rotate(180deg);
-          `};
-  `,
 };
 
 export default HomeContentView;

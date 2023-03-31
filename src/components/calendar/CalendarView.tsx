@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import Header from '../common/Header';
 import makeMonthCalendar from './makeCalendar';
 import { CalendarViewParamType } from './CalendarType';
+import { Calendar, Feel } from './CalendarStyle';
 
 const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => {
   const thisMonthCalendar = makeMonthCalendar(year, month);
@@ -27,18 +27,24 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
        </Calendar.Calendar.Week>
       {thisMonthCalendar.map((week, idx) => {
         return (
-         <div key={`week${idx}`}>
+         <Calendar.Calendar.Row key={`week${idx}`}>
           {
              week.map(day => {
-              return <span data-current={day.currentMonth} key={day.date.format('YYYY.MM.DD')}>{day.date.format('MM.DD')}</span>
+              return (
+                <Calendar.Calendar.Date 
+                current={day.currentMonth} 
+                key={day.date.format('YYYY.MM.DD')}>
+                  {day.date.format('D')}
+                </Calendar.Calendar.Date>
+                )
               })
           }
-         </div>
+         </Calendar.Calendar.Row>
         )        
       })}
       </Calendar.Calendar.Container>
-      <section>
-      <h2>오늘의 기분</h2>
+      <Feel.Container>
+      <Feel.Title>오늘의 기분</Feel.Title>
       <div>
         <div>
           <span></span>
@@ -46,53 +52,14 @@ const CalendarView = ({year, month,setCalendarInfo} : CalendarViewParamType) => 
         </div>
         <p>{`(기분에 대해서 기록해보세요)`}</p>
       </div>
-      </section>
+      </Feel.Container>
       </Calendar.Content>
     </Calendar.Wrap>
   );
 };
 
 
-// COMPONENT style
-const Calendar= {
-  Wrap: styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: 100%;    
-  `,
-  Content: styled.div`
-    background: ${({theme})=> theme.color.bg.bg_01};
-    flex-grow: 1;    
-  `,
-  Calendar : {
-    Container : styled.section`
-      background-color: ${({theme})=> theme.color.white};
-      border-radius: 0 0 2.3rem 2.3rem;
-      padding: 2rem 2.4rem 4rem 2.4rem;
-      box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.14);    
-    `,
-    MonthInfo : styled.div`
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    `,
-    MonthText: styled.h2`
-      color: ${({theme}) => theme.color.text.text_09};
-      font-size: 2rem;
-      ${({theme}) => theme.font.sans.bold};
-    `,
-    Week: styled.div`
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      margin-top: 3.6rem;
-    `,
-    WeekItem: styled.span`
-      display: inline-block;
-      text-align: center;
-    `
-  }
-};
+
 
 
 export default CalendarView;

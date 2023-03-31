@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import { ReactNode } from 'react';
-
+import Page from './PageWrapperStyle';
 import NavContainer from '@/components/common/nav/NavContainer';
 
 // COMPONENT
@@ -18,18 +17,5 @@ interface PageWrapperPropsType {
   children: ReactNode;
 }
 
-// COMPONENT style
-const Page = {
-  Container: styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-  `,
-  Inner: styled.div`
-    flex-grow: 1;
-    overflow-y: scroll;
-  `,
-};
 
 export default PageWrapper;
