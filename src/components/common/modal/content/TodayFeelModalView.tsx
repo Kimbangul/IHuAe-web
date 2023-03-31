@@ -50,7 +50,7 @@ const TodayFeelModalView = () => {
       </Modal.Close.Btn>
       <Modal.Text>오늘은 어떤 기분이 드나요?</Modal.Text>
       <Modal.List.Container>
-        <TodayFeelIconContainer todayFeel={feel} setTodayFeel={setFeel} list={todayFeelData} />
+        <TodayFeelIconContainer todayFeel={feel} setTodayFeel={setFeel} list={todayFeelData()} />
       </Modal.List.Container>
       <Modal.Input type='text' placeholder='추가로 느끼는 감정을 작성해보세요' value={feelDesc} onChange={(e) => setFeelDesc(e.target.value)} />
       <Modal.Button onClick={onSubmit}>선택 완료</Modal.Button>
