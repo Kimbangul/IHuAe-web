@@ -15,7 +15,6 @@ const ChatContainer = () => {
     if (e.key !== 'Enter') return;
     e.preventDefault();
     const newMsg = new ChatBubble(moment(), inputVal);
-    console.log(newMsg);
     setData((prev) => [...prev, newMsg]);
     setInputVal('');    
   } 

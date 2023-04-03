@@ -1,12 +1,19 @@
 import Header from '@/components/common/Header';
-import Chat from './ChatStyle';
+import Chat, {SubHeader} from './ChatStyle';
 import BubbleView from "./BubbleView";
 import { ChatViewPropsType } from './ChatType';
+import SUBHEADER_CHEVRON_14 from '@/assets/icons/chat/subheader_chevron_14.svg';
 
 const ChatView = ({list, sendMsg, setInputVal, inputVal} :  ChatViewPropsType) => {
   return(
     <Chat.Container>
       <Header title='header' back={true}/>
+      {/* <SubHeader.Container>
+        <SubHeader.Desc>서브헤더 설명</SubHeader.Desc>
+        <SubHeader.Button>
+          <SUBHEADER_CHEVRON_14 />
+        </SubHeader.Button>        
+      </SubHeader.Container> */}
       <Chat.Content id='chartContent'>
         <Chat.Desc>desc</Chat.Desc>
         <Chat.ChatList>

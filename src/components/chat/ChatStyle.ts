@@ -41,6 +41,9 @@ const Chat = {
       padding: 1rem 1.6rem;
       color: ${({theme}) => theme.color.text.text_10};
       resize: none;
+      ::-webkit-scrollbar {
+        display: none;
+      }
       ${({theme}) => theme.font.sans.medium};
     `
   },
@@ -48,6 +51,27 @@ const Chat = {
     padding: 0 2rem;
     margin-top: 1.2rem;
   `,
+}
+export const SubHeader = {
+  Container: styled.div`
+    margin-top: 0.6rem;
+    padding: 1.6rem 2rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `,
+  Desc: styled.p`
+    color:  ${({theme}) => theme.color.text.text_04};
+    font-size: 1.1rem;
+    ${({theme}) => theme.font.sans.medium};
+  `,
+  Button: styled.button`
+    width: 1.4rem;
+    cursor: pointer;
+  `
 }
 export const Bubble = styled.p`
   width: 24.6rem;
