@@ -1,4 +1,5 @@
 import moment from "moment"
+import { Dispatch, SetStateAction } from "react";
 
 export interface BubbleParamType {
   content: string,
@@ -6,8 +7,11 @@ export interface BubbleParamType {
 
 export interface ChatViewPropsType{
   list: ChatBubble[];
-  sendMsg: (message:string) => void;
+  sendMsg: (e:React.KeyboardEvent<HTMLTextAreaElement>) => void;
+  inputVal: string;
+  setInputVal: Dispatch<SetStateAction<string>>
 }
+
 
 export class ChatBubble {
   date: moment.Moment;

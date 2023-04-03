@@ -9,14 +9,18 @@ const ChatContainer = () => {
   const [data, setData] = useState<ChatBubble[]>([]);
   const [inputVal, setInputVal] = useState('');
 
-  const sendMsg = (msg: string) =>{
-    const newMsg = new ChatBubble(moment(), msg);
+
+  // FUNCTION 메세지 전송
+  const sendMsg = (e: React.KeyboardEvent<HTMLTextAreaElement>) =>{
+    if (e.key !== 'Enter') return;
+    const newMsg = new ChatBubble(moment(), inputVal);
     setData((prev) => [...prev, newMsg]);
+    setInputVal('');
   } 
 
   return(
     <>
-      <ChatView list={data} sendMsg={sendMsg}/>
+      <ChatView list={data} sendMsg={sendMsg} inputVal={inputVal} setInputVal={setInputVal}/>
     </>
   )
 }

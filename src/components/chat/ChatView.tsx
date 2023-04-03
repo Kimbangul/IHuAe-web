@@ -3,7 +3,7 @@ import Chat from './ChatStyle';
 import BubbleView from "./BubbleView";
 import { ChatViewPropsType } from './ChatType';
 
-const ChatView = ({list, sendMsg} :  ChatViewPropsType) => {
+const ChatView = ({list, sendMsg, setInputVal, inputVal} :  ChatViewPropsType) => {
   return(
     <Chat.Container>
       <Header title='header' back={true}/>
@@ -18,7 +18,7 @@ const ChatView = ({list, sendMsg} :  ChatViewPropsType) => {
         </Chat.ChatList>        
       </Chat.Content>
       <Chat.Input.Container>
-        <Chat.Input.Input />
+        <Chat.Input.Input value={inputVal} onChange={(e) => setInputVal(e.target.value)} onKeyPress={sendMsg}/>
       </Chat.Input.Container>
     </Chat.Container>
   )
