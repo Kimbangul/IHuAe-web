@@ -1,11 +1,19 @@
 import Header from '@/components/common/Header';
+import { DiaryViewParamType } from './DiaryType';
 
-const DiaryView = () => {
+const DiaryView = ({calendar} : DiaryViewParamType) => {
   return (
     <div>
       <Header title='기록'/>
       <section>
         <span>D+DAY</span>
+        <ul>
+        {
+          calendar.map((el)=>{
+            return <li>{el.date.format('D')}</li>
+          })
+        }
+        </ul>
       </section>
       <section>
         <h2>오늘의 문답</h2>
