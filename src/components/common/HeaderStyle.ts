@@ -4,12 +4,13 @@ import styled from 'styled-components';
 const Hd = {
   Container: styled.header`
     height: 5rem;
-    flex-shrink: 0;
+    flex-shrink: 0;    
   `,
   Inner: styled.div`
     height: 100%;
     position: relative;
     padding: 0 2rem;
+    background: ${({ theme }) => theme.color.white};
   `,
   Title: styled.h1`
     font-size: 1.6rem;

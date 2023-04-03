@@ -9,7 +9,10 @@ export interface ChatViewPropsType{
   list: ChatBubble[];
   sendMsg: (e:React.KeyboardEvent<HTMLTextAreaElement>) => void;
   inputVal: string;
-  setInputVal: Dispatch<SetStateAction<string>>
+  setInputVal: Dispatch<SetStateAction<string>>;
+  subHeaderText: string;
+  isMore: boolean;
+  setIsMore: Dispatch<SetStateAction<boolean>>;
 }
 
 

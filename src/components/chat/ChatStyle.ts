@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const Chat = {
   Container: styled.div`
@@ -6,10 +6,10 @@ const Chat = {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background: ${({theme}) => theme.color.bg.bg_01};
   `,
   Content: styled.section`
-    flex-grow: 1;
-    background: ${({theme}) => theme.color.bg.bg_01};
+    flex-grow: 1;    
     overflow: hidden;
     overflow-y:scroll;
     padding-bottom: 3.6rem;
@@ -62,15 +62,26 @@ export const SubHeader = {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: ${({ theme }) => theme.color.white};
   `,
   Desc: styled.p`
     color:  ${({theme}) => theme.color.text.text_04};
     font-size: 1.1rem;
     ${({theme}) => theme.font.sans.medium};
   `,
-  Button: styled.button`
+  Button: styled.button<{isMore: boolean}>`
     width: 1.4rem;
     cursor: pointer;
+    ${({isMore}) => 
+    isMore ? 
+    css`
+      transform: rotate(180deg);      
+    `
+    :
+    css`
+      transform: rotate(0deg);
+    `
+    };
   `
 }
 export const Bubble = styled.p`
