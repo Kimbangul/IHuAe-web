@@ -59,6 +59,7 @@ export const Bubble = styled.p`
   margin-right: 0;
   margin-top : 2rem;
   line-height: 1.5;
+  word-wrap: break-word;
   background: ${({theme}) => theme.color.main.secondary};
   ${({theme}) => theme.font.sans.medium};
 

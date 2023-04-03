@@ -7,7 +7,7 @@ const ChatView = ({list, sendMsg, setInputVal, inputVal} :  ChatViewPropsType) =
   return(
     <Chat.Container>
       <Header title='header' back={true}/>
-      <Chat.Content>
+      <Chat.Content id='chartContent'>
         <Chat.Desc>desc</Chat.Desc>
         <Chat.ChatList>
           {
