@@ -38,9 +38,9 @@ const DiaryView = ({calendar} : DiaryViewParamType) => {
           </Diary.Diary.Item>
         </Diary.Diary.List>
       </Diary.Diary.Container>
-      <button>
+      <Diary.Button>
         +
-      </button>
+      </Diary.Button>
     </Diary.Wrap>
   )
 }

@@ -89,7 +89,21 @@ const Diary = {
       ${({theme}) =>theme.font.sans.medium};
     `,
 
-  }
+  },
+  Button: styled.button`
+    width: 4.8rem;
+    height: 4.8rem;
+    cursor: pointer;
+    font-size: 4rem;
+    border-radius: 100%;
+    position: fixed;
+    right: 2rem;
+    bottom: 8rem;
+    box-shadow: 0 0rem 1rem rgba(0,0,0,0.16);
+    background: ${({theme}) => theme.color.main.main};
+    color: ${({theme}) => theme.color.white};   
+    ${({theme}) => theme.font.sans.bold} 
+  `,
 }
 
 export const Calendar = {
