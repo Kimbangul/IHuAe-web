@@ -34,11 +34,11 @@ const Chat = {
     `,
     Input: styled.textarea`
       width: 100%;
-      min-height: 3.6rem;
+      height: 3.6rem;
       border: none;
       background: ${({theme}) => theme.color.white};
       border-radius: 10rem;
-      padding: 0.8rem 1.6rem;
+      padding: 1rem 1.6rem;
       color: ${({theme}) => theme.color.text.text_10};
       resize: none;
       ${({theme}) => theme.font.sans.medium};

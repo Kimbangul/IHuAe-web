@@ -1,17 +1,20 @@
 import Header from '@/components/common/Header';
 import Chat from './ChatStyle';
 import BubbleView from "./BubbleView";
+import { ChatViewPropsType } from './ChatType';
 
-const ChatView = () => {
+const ChatView = ({list, sendMsg} :  ChatViewPropsType) => {
   return(
     <Chat.Container>
       <Header title='header' back={true}/>
       <Chat.Content>
         <Chat.Desc>desc</Chat.Desc>
         <Chat.ChatList>
-          <BubbleView content='chat message test'/>
-          <BubbleView content='chat message test'/>
-          <BubbleView content=' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum obcaecati reiciendis dolor vel dolorem, ducimus cumque ipsa officiis nostrum repellat. Quibusdam, iure earum. Numquam voluptatibus ducimus autem eius, nemo architecto.'/>
+          {
+            list.map((el, idx) => {
+              return <BubbleView content={el.message} key={`message${idx}`}/>
+            })
+          }   
         </Chat.ChatList>        
       </Chat.Content>
       <Chat.Input.Container>

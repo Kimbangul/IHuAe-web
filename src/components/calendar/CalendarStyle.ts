@@ -27,6 +27,7 @@ export const Calendar= {
     `,
     Button: styled.button<{direction: 'prev' | 'next'}>`
       padding: 0.8rem;
+      cursor: pointer;
       svg{
         width: 1.3rem;
         height: auto;
