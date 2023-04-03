@@ -1,46 +1,47 @@
 import Header from '@/components/common/Header';
 import { DiaryViewParamType } from './DiaryType';
+import Diary, { Calendar } from './DiaryStyle';
 
 const DiaryView = ({calendar} : DiaryViewParamType) => {
   return (
-    <div>
+    <Diary.Wrap>
       <Header title='기록'/>
-      <section>
+      <Calendar.Container>
         <span>D+DAY</span>
-        <ul>
+        <Calendar.List>
         {
           calendar.map((el)=>{
-            return <li>{el.date.format('D')}</li>
+            return <Calendar.Item>{el.date.format('D')}</Calendar.Item>
           })
         }
-        </ul>
-      </section>
-      <section>
-        <h2>오늘의 문답</h2>
-        <div>
-         <div>
-           <span>Q.1</span>
-           <p>문답내용</p>
-         </div>
-         <button>기록하기</button>
-        </div>
-      </section>
-      <section>
-        <h2>오늘의 기록</h2>
-        <ul>
-          <li>
-            <div>
-              <h3>제목</h3>
-              <button>삭제</button>
-            </div>
-            <p>내용 텍스트 내용 텍스트 내용 텍스트</p>
-          </li>
-        </ul>
-      </section>
+        </Calendar.List>
+      </Calendar.Container>
+      <Diary.Inquiry.Container>
+        <Diary.Title>오늘의 문답</Diary.Title>
+        <Diary.Inquiry.Content>
+         <Diary.Inquiry.TextBox>
+           <Diary.Inquiry.Number>Q.1</Diary.Inquiry.Number>
+           <Diary.Inquiry.Desc>문답내용</Diary.Inquiry.Desc>
+         </Diary.Inquiry.TextBox>
+         <Diary.Inquiry.Button>기록하기</Diary.Inquiry.Button>
+        </Diary.Inquiry.Content>
+      </Diary.Inquiry.Container>
+      <Diary.Diary.Container>
+        <Diary.Title>오늘의 기록</Diary.Title>
+        <Diary.Diary.List>
+          <Diary.Diary.Item>
+            <Diary.Diary.TitleContainer>
+              <Diary.Diary.Title>제목</Diary.Diary.Title>
+              <Diary.Diary.Delete>삭제</Diary.Diary.Delete>
+            </Diary.Diary.TitleContainer>
+            <Diary.Diary.ItemDesc>내용 텍스트 내용 텍스트 내용 텍스트</Diary.Diary.ItemDesc>
+          </Diary.Diary.Item>
+        </Diary.Diary.List>
+      </Diary.Diary.Container>
       <button>
         +
       </button>
-    </div>
+    </Diary.Wrap>
   )
 }
 
