@@ -6,8 +6,6 @@ const DiaryContainer = () => {
   const initialDate = moment().startOf('day');
   const calendar = makeDiaryCalendar(initialDate);
 
-  console.log(calendar);
-
   return <DiaryView calendar={calendar}/>
 }
 

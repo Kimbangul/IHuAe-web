@@ -1,6 +1,7 @@
 import Header from '@/components/common/Header';
 import { DiaryViewParamType } from './DiaryType';
 import Diary, { Calendar } from './DiaryStyle';
+import Link from 'next/link';
 
 const DiaryView = ({calendar} : DiaryViewParamType) => {
   return (
@@ -27,6 +28,7 @@ const DiaryView = ({calendar} : DiaryViewParamType) => {
         </Diary.Inquiry.Content>
       </Diary.Inquiry.Container>
       <Diary.Diary.Container>
+        <Link href={`/diary/detail/1`}>
         <Diary.Title>오늘의 기록</Diary.Title>
         <Diary.Diary.List>
           <Diary.Diary.Item>
@@ -37,6 +39,7 @@ const DiaryView = ({calendar} : DiaryViewParamType) => {
             <Diary.Diary.ItemDesc>내용 텍스트 내용 텍스트 내용 텍스트</Diary.Diary.ItemDesc>
           </Diary.Diary.Item>
         </Diary.Diary.List>
+        </Link>
       </Diary.Diary.Container>
       <Diary.Button>
         +
