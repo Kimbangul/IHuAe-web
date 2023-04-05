@@ -1,31 +1,34 @@
+import moment from 'moment';
 import Header from '@/components/common/Header';
+import { Menu, Detail } from './DetailStyle';
 
 const DetailView = () => {
+  const tmpAmPm = moment().format(`a`) ==='pm'?'오후':'오전';
+  const tmpTime = moment().format(`YYYY.MM.DD ${tmpAmPm} HH:mm`);
   return(
-    <div>
+    <Detail.Wrap>
       <Header title='나의 기록' back={true} menu={DetailViewMenu()}/>
-      <section className='inner'>
-
-      </section>
-    </div>
+      <Detail.Inner className='inner'>
+        <Detail.Title>title</Detail.Title>
+        <Detail.Content>
+          <Detail.Text>contents page</Detail.Text>
+          <Detail.Date>{tmpTime}</Detail.Date>
+        </Detail.Content>
+      </Detail.Inner>
+    </Detail.Wrap>
   )
 }
 
 const DetailViewMenu = () => {
   return(
-    <ul>
-    {/* position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex; */}
-      <li>
+    <Menu.List>
+      <Menu.Item>
         수정
-      </li>
-      <li>
+      </Menu.Item>
+      <Menu.Item>
         삭제
-      </li>
-    </ul>
+      </Menu.Item>
+    </Menu.List>
   )
 }
 
