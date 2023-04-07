@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Detail, Menu } from '@/components/diary/detail/DetailStyle';
+import { MutableRefObject } from 'react';
 
 const AskStyle = {
   Wrap: styled(Detail.Wrap)``,
@@ -32,6 +33,11 @@ const AskStyle = {
   Textarea: styled.textarea`
     flex-grow: 1;
     padding: 2rem;
+    font-size: 1.6rem;
+    border: none;
+    color: ${({theme}) => theme.color.text.text_09};
+    resize: none;
+    ${({theme}) => theme.font.sans.regular};
   `,
   Info: styled(Detail.Date)`
     text-align: right;

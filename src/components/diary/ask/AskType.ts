@@ -1,5 +1,4 @@
-import { type } from "os";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 export interface ContentType {
   content: string;
@@ -11,4 +10,7 @@ export interface EditType {
   setIsEdit: Dispatch<SetStateAction<boolean>>;
 }
 
+export interface MenuParamType extends ContentType {
+  editRef: MutableRefObject<HTMLTextAreaElement | null>
+}
 export type AskParamType = ContentType & EditType;
