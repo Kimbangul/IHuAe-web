@@ -10,7 +10,7 @@ const DiaryView = ({ calendar }: DiaryViewParamType) => {
     <Diary.Wrap>
       <Header title='기록' />
       <Calendar.Container>
-        <span>D+DAY</span>
+        <Calendar.DDay>D+DAY</Calendar.DDay>
         <CalendarView calendar={calendar}/>
       </Calendar.Container>
       <Diary.Inquiry.Container>

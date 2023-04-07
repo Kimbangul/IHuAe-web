@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Calendar } from "./DiaryStyle";
 import { DiaryViewParamType } from "./DiaryType";
+import moment from "moment";
 
 const CalendarView = ({ calendar }: DiaryViewParamType) => {
   const scorllRef = useRef<null | HTMLUListElement>(null);
@@ -37,7 +38,22 @@ const CalendarView = ({ calendar }: DiaryViewParamType) => {
       // onDragMove={onDragMove}
     >
       {calendar.map((el) => {
-        return <Calendar.Item key={el.date.format('D')}>{el.date.format('D')}</Calendar.Item>;
+        return (
+        <Calendar.Item 
+          key={el.date.format('MM.DD')}
+          today={el.date.format('YYYY.MM.DD') === moment().format('YYYY.MM.DD')}
+        >
+          {el.date.format('D')}
+          {/* COMPONENT 당일일 때 아이콘 표시 */}
+         {/* <span>
+         {
+           day.date.format('YYYY.MM.DD') === moment().format('YYYY.MM.DD') &&
+           feelIcon !== null &&
+         <Calendar.Calendar.TodayIcon>{feelIcon}</Calendar.Calendar.TodayIcon>
+         }
+         </span> */}
+        </Calendar.Item>
+        );
       })}
     </Calendar.List>
   )
