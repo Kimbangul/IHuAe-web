@@ -29,6 +29,10 @@ const AskStyle = {
   Text: styled(Detail.Text)`
     padding: 2rem;
   `,
+  Textarea: styled.textarea`
+    flex-grow: 1;
+    padding: 2rem;
+  `,
   Info: styled(Detail.Date)`
     text-align: right;
     padding: 0 2rem;
