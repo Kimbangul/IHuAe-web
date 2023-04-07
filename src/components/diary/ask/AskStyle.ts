@@ -42,6 +42,7 @@ const AskStyle = {
   Info: styled(Detail.Date)`
     text-align: right;
     padding: 0 2rem;
+    padding-top: 1.6rem;
   `,
 };
 
