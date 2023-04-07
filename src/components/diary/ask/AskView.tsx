@@ -1,5 +1,5 @@
 import Header from '@/components/common/Header';
-import AskStyle from './AskStyle';
+import AskStyle, {AskMenu} from './AskStyle';
 
 const AskView = () => {
   return (
@@ -7,8 +7,8 @@ const AskView = () => {
       <Header title='나의 기록' back={true} menu={AskViewMenu()} />
       <AskStyle.Content>
         <AskStyle.Title.Container>
-          <span></span>
-          <h2>X와 어떻게 헤어졌는지 자세히 말해줄래요?</h2>
+          <AskStyle.Title.Question>Q.1</AskStyle.Title.Question>
+          <AskStyle.Title.Text>Title</AskStyle.Title.Text>
         </AskStyle.Title.Container>
         <AskStyle.Text>contents</AskStyle.Text>
         <AskStyle.Info>0 / 1000자</AskStyle.Info>
@@ -18,7 +18,7 @@ const AskView = () => {
 };
 
 const AskViewMenu = () => {
-  return <button>작성 완료</button>;
+  return <AskMenu.Button>수정</AskMenu.Button>;
 };
 
 export default AskView;
