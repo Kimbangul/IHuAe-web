@@ -1,11 +1,11 @@
 import PageWrapper from '@/components/common/PageWrapper';
-import DetailView from '@/components/diary/detail/DetailView';
+import DetailContainer from '@/components/diary/detail/DetailContainer';
 
 export default function Diary() {
   return (
     <>
       <PageWrapper hideBottomTab={false}>
-        <DetailView />
+        <DetailContainer />
       </PageWrapper>
     </>
   );

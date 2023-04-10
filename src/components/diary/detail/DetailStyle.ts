@@ -52,5 +52,6 @@ export const Menu = {
     font-size: 1.2rem;   
     color: ${({theme}) => theme.color.main.main};
     ${({theme}) => theme.font.sans.medium};
+    cursor: pointer;
   `,
 }

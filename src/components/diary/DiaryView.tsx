@@ -2,6 +2,7 @@ import Router from 'next/router';
 import Header from '@/components/common/Header';
 import { DiaryViewParamType } from './DiaryType';
 import Diary, { Calendar } from './DiaryStyle';
+import CalendarView from './CalendarView';
 import Link from 'next/link';
 
 const DiaryView = ({ calendar }: DiaryViewParamType) => {
@@ -9,12 +10,8 @@ const DiaryView = ({ calendar }: DiaryViewParamType) => {
     <Diary.Wrap>
       <Header title='기록' />
       <Calendar.Container>
-        <span>D+DAY</span>
-        <Calendar.List>
-          {calendar.map((el) => {
-            return <Calendar.Item>{el.date.format('D')}</Calendar.Item>;
-          })}
-        </Calendar.List>
+        <Calendar.DDay>D+DAY</Calendar.DDay>
+        <CalendarView calendar={calendar}/>
       </Calendar.Container>
       <Diary.Inquiry.Container>
         <Diary.Title>오늘의 문답</Diary.Title>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const Diary = {
   Wrap: styled.div`
@@ -103,13 +103,14 @@ const Diary = {
     background: ${({theme}) => theme.color.main.main};
     color: ${({theme}) => theme.color.white};   
     ${({theme}) => theme.font.sans.bold} 
-  `,
+  `, 
 }
 
 export const Calendar = {
   Container : styled.section`
     background: ${({theme}) => theme.color.white};
     padding: 1.1rem 2rem;
+    padding-bottom: 2rem;
     position: relative;
     z-index: 2;
     box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.14);
@@ -118,10 +119,21 @@ export const Calendar = {
     display: flex;
     width: 100%;
     overflow-x: auto;    
+    margin-top: 2rem;
   `,
-  Item: styled.li`
-
+  Item: styled.li<{today: boolean}>`
+    color: ${({theme}) => theme.color.text.text_08};
+    padding: 0 2rem;
+    ${({today}) => today && css`
+        color: #2d2d2d;
+        ${({theme}) => theme.font.sans.bold};
+    `};
   `,
+   DDay : styled.span`
+   font-size: 1.4rem;
+   color: ${({theme}) => theme.color.text.text_09};
+   ${({theme}) => theme.font.sans.bold};
+ `
   
 }
 
