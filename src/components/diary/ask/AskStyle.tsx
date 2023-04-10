@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Detail } from '@/components/diary/detail/DetailStyle';
+import { Detail } from '../detail/DetailStyle';
 
 const AskStyle = {
   Wrap: styled(Detail.Wrap)``,
@@ -31,8 +31,8 @@ const AskStyle = {
   `,
 };
 
-export const Menu = {
-  Item: styled.button`
+export const AskMenu = {
+  Button: styled.button`
     position: absolute;
     right: 2rem;
     gap: 2rem;

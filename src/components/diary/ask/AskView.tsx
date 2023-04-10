@@ -14,10 +14,10 @@ const AskView: React.FC<AskParamType> = ({ content, setContent, isEdit, setIsEdi
 
   return (
     <AskStyle.Wrap>
-      <Header title='나의 기록' back={true} menu={AskViewMenu({ isEdit, setIsEdit })} />
+      <Header title='나의 기록' back={true} />
       <AskStyle.Content>
         <AskStyle.Title.Container>
-          <AskStyle.Title.Question>Q.1</AskStyle.Title.Question>
+          <AskStyle.Title.Text as='span'>Q.1</AskStyle.Title.Text>
           <AskStyle.Title.Text>Title</AskStyle.Title.Text>
         </AskStyle.Title.Container>
         {!isEdit ? <AskStyle.Text>{content}</AskStyle.Text> : <AskEditView content={content} setContent={setContent} />}
