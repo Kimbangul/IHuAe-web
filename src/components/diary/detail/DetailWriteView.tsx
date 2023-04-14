@@ -8,22 +8,24 @@ const DetailWrite = () => {
       <Header title='일기 작성' back={true} menu={DetailWriteMenu()}/>
       <Detail.Inner>
         <Detail.Title>
-          <input type="text" />
+          <Detail.TitleInput type="text" />
         </Detail.Title>
+        <Detail.Content>
         <Detail.Textarea>
           
         </Detail.Textarea>
+        </Detail.Content>
       </Detail.Inner>
-      <AskStyle.Info>0 / 1000자</AskStyle.Info>
+      <Detail.Info>0 / 1000자</Detail.Info>
     </Detail.Wrap>
   )
 }
 
 const DetailWriteMenu = () => {
   return(
-    <div>
+    <Menu.List as='div'>
       <Menu.Item as='button'>작성 완료</Menu.Item>
-    </div>
+    </Menu.List>
   )
 }
 

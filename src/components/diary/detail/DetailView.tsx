@@ -14,7 +14,7 @@ const DetailView : React.FC<DetailParamType> = ({content, setContent, isEdit, se
         {
           !isEdit ?
           'Title' :
-          <input type="text" value='title'/>
+          <Detail.TitleInput type="text"/>
         }
         </Detail.Title>
         <Detail.Content>

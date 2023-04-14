@@ -20,6 +20,12 @@ export const Detail = {
     border-bottom: 0.1rem solid ${({theme}) => theme.color.text.text_01};
     ${({theme}) => theme.font.sans.regular};
   `,
+  TitleInput: styled.input`
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 0;
+    border: none;
+  `,
   Content: styled.div`
     padding: 1.8rem 2rem;
     padding-bottom: 2.2rem;
@@ -36,6 +42,14 @@ export const Detail = {
   Date: styled.div`
     font-size: 1.4rem;
     color: ${({theme}) => theme.color.text.text_03};
+  `,
+  Info: styled.div`
+    font-size: 1.4rem;
+    color: ${({theme}) => theme.color.text.text_03};
+    text-align: right;
+    padding: 0 2rem;
+    padding-top: 1.6rem;
+    padding-bottom: 1.8rem;
   `,
   Textarea: styled.textarea`
     flex-grow: 1;
