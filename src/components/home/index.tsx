@@ -14,6 +14,7 @@ const Home = () => {
 // COMPONENT style
 const HomeContainer = styled.section`
   background: ${({ theme }) => theme.color.bg.bg_01};
+  height: 100%;
 `;
 
 export default Home;

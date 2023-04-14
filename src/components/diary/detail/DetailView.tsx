@@ -42,9 +42,9 @@ const DetailViewMenu :React.FC<EditType> = ({isEdit, setIsEdit}) => {
 
 const DetailEditView : React.FC<ContentType>  = ({content, setContent}) => {
   return(
-    <textarea id='Ask__Input'>
+    <Detail.Textarea id='Ask__Input'>
       {content}
-    </textarea>
+    </Detail.Textarea>
   )
 }
 

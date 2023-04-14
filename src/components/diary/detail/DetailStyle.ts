@@ -36,7 +36,17 @@ export const Detail = {
   Date: styled.div`
     font-size: 1.4rem;
     color: ${({theme}) => theme.color.text.text_03};
-  `
+  `,
+  Textarea: styled.textarea`
+    flex-grow: 1;
+    padding: 2rem;
+    font-size: 1.6rem;
+    border: none;
+    color: ${({theme}) => theme.color.text.text_09};
+    resize: none;
+    outline: none;
+    ${({theme}) => theme.font.sans.regular};
+  `,
 }
 
 export const Menu = {

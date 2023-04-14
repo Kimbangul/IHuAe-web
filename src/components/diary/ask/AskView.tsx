@@ -14,7 +14,7 @@ const AskView: React.FC<AskParamType> = ({ content, setContent, isEdit, setIsEdi
 
   return (
     <AskStyle.Wrap>
-      <Header title='나의 기록' back={true} />
+      <Header title='문답 작성' back={true} menu={AskViewMenu({isEdit, setIsEdit})}/>
       <AskStyle.Content>
         <AskStyle.Title.Container>
           <AskStyle.Title.Text as='span'>Q.1</AskStyle.Title.Text>
