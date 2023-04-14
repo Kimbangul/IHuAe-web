@@ -37,7 +37,7 @@ const DiaryView = ({ calendar }: DiaryViewParamType) => {
           </Diary.Diary.List>
         </Link>
       </Diary.Diary.Container>
-      <Diary.Button>+</Diary.Button>
+      <Diary.Button onClick={() => Router.push(`/diary/detail/write`)}>+</Diary.Button>
     </Diary.Wrap>
   );
 };

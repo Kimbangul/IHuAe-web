@@ -18,7 +18,9 @@ const AskView: React.FC<AskParamType> = ({ content, setContent, isEdit, setIsEdi
       <AskStyle.Content>
         <AskStyle.Title.Container>
           <AskStyle.Title.Text as='span'>Q.1</AskStyle.Title.Text>
-          <AskStyle.Title.Text>Title</AskStyle.Title.Text>
+          <AskStyle.Title.Text>
+            Question
+          </AskStyle.Title.Text>
         </AskStyle.Title.Container>
         {!isEdit ? <AskStyle.Text>{content}</AskStyle.Text> : <AskEditView content={content} setContent={setContent} />}
         <AskStyle.Info>{content.length} / 1000자</AskStyle.Info>

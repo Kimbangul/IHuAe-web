@@ -33,7 +33,7 @@ const AskStyle = {
     padding: 2rem;
   `,
   Textarea: styled(Detail.Textarea)`
-    padding: 0;
+     padding: 2rem;
   `,
   Info: styled(Detail.Date)`
     text-align: right;

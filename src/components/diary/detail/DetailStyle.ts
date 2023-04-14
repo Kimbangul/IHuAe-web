@@ -39,7 +39,7 @@ export const Detail = {
   `,
   Textarea: styled.textarea`
     flex-grow: 1;
-    padding: 2rem;
+    padding: 0rem;
     font-size: 1.6rem;
     border: none;
     color: ${({theme}) => theme.color.text.text_09};

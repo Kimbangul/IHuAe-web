@@ -10,7 +10,13 @@ const DetailView : React.FC<DetailParamType> = ({content, setContent, isEdit, se
     <Detail.Wrap>
       <Header title='나의 기록' back={true} menu={DetailViewMenu({isEdit, setIsEdit})}/>
       <Detail.Inner className='inner'>
-        <Detail.Title>title</Detail.Title>
+        <Detail.Title>
+        {
+          !isEdit ?
+          'Title' :
+          <input type="text" value='title'/>
+        }
+        </Detail.Title>
         <Detail.Content>
           {
             !isEdit ?
