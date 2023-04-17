@@ -11,7 +11,7 @@ const DiaryView = ({ calendar }: DiaryViewParamType) => {
       <Header title='기록' />
       <Calendar.Container>
         <Calendar.DDay>D+DAY</Calendar.DDay>
-        <CalendarView calendar={calendar}/>
+        <CalendarView calendar={calendar} />
       </Calendar.Container>
       <Diary.Inquiry.Container>
         <Diary.Title>오늘의 문답</Diary.Title>
