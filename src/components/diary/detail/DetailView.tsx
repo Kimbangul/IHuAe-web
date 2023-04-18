@@ -2,6 +2,7 @@ import { RootStateType, indexAction } from '@/redux';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import Header from '@/components/common/Header';
+import Alert from '@/components/common/modal/AlertStyle';
 import { Menu, Detail } from './DetailStyle';
 import { DetailParamType, ContentType, EditType } from './DetailType';
 
@@ -38,11 +39,11 @@ const DetailViewMenu: React.FC<EditType> = ({ isEdit, setIsEdit }) => {
     dispatch(
       indexAction.setModalContent(
         <>
-          <p>기록을 삭제하시겠습니까?</p>
-          <div>
-            <button onClick={() => dispatch(indexAction.setModalClose())}>취소</button>
-            <button onClick={() => dispatch(indexAction.setModalClose())}>삭제</button>
-          </div>
+          <Alert.Text>기록을 삭제하시겠습니까?</Alert.Text>
+          <Alert.Btn.Container>
+            <Alert.Btn.DefaultBtn onClick={() => dispatch(indexAction.setModalClose())}>취소</Alert.Btn.DefaultBtn>
+            <Alert.Btn.PointBtn onClick={() => dispatch(indexAction.setModalClose())}>삭제</Alert.Btn.PointBtn>
+          </Alert.Btn.Container>
         </>
       )
     );
