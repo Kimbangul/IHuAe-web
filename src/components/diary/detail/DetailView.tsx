@@ -37,12 +37,12 @@ const DetailViewMenu: React.FC<EditType> = ({ isEdit, setIsEdit }) => {
   // FUNCTION 모달 열기
   const onClickDeleteBtn = () => {
     dispatch(
-      indexAction.setModalContent(
+      indexAction.setAlertContent(
         <>
           <Alert.Text>기록을 삭제하시겠습니까?</Alert.Text>
           <Alert.Btn.Container>
-            <Alert.Btn.DefaultBtn onClick={() => dispatch(indexAction.setModalClose())}>취소</Alert.Btn.DefaultBtn>
-            <Alert.Btn.PointBtn onClick={() => dispatch(indexAction.setModalClose())}>삭제</Alert.Btn.PointBtn>
+            <Alert.Btn.DefaultBtn onClick={() => dispatch(indexAction.setAlertClose())}>취소</Alert.Btn.DefaultBtn>
+            <Alert.Btn.PointBtn onClick={() => dispatch(indexAction.setAlertClose())}>삭제</Alert.Btn.PointBtn>
           </Alert.Btn.Container>
         </>
       )

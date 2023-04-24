@@ -9,31 +9,55 @@ const CalendarView = ({ calendar }: DiaryViewParamType) => {
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState<number>(0);
 
-  const onDragStart = (e: React.MouseEvent | TouchEvent) => {
+  const onDragStart = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
-    setIsDrag(true);
     if (scrollRef.current?.scrollLeft === undefined) return;
+    setIsDrag(true);
+    console.log(typeof e);
+
     if (e instanceof TouchEvent) {
-      return;
+      // e.targetTouches[0].preventDefault();
+      setStartX(e.changedTouches[0].pageX + scrollRef.current?.scrollLeft);
     }
-    setStartX(e.pageX + scrollRef.current?.scrollLeft);
+    if (e instanceof MouseEvent) {
+      setStartX(e.pageX + scrollRef.current?.scrollLeft);
+      console.log('mouse', scrollRef.current?.scrollLeft);
+    }
+    console.log(startX);
   };
 
   const onDragEnd = () => {
+    console.log(startX);
     setIsDrag(false);
   };
 
-  const onDragMove = (e: React.MouseEvent | TouchEvent) => {
-    console.log('drag');
+  const onDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+    // console.log('drag move');
+    console.log(startX);
+    console.log(typeof e);
+
     if (!isDrag || scrollRef.current?.scrollLeft === undefined) return;
+
     if (e instanceof TouchEvent) {
+      scrollRef.current.scrollLeft = startX - e.changedTouches[0].pageX;
       return;
     }
-    scrollRef.current.scrollLeft = startX - e.pageX;
+    if (e instanceof MouseEvent) {
+      console.log(e.pageX);
+      scrollRef.current.scrollLeft = startX - e.pageX;
+    }
   };
 
   return (
-    <Calendar.List ref={scrollRef} onMouseDown={onDragStart} onMouseUp={onDragEnd} onMouseMove={(e: React.MouseEvent) => setTimeout(() => onDragMove(e), 200)}>
+    <Calendar.List
+      ref={scrollRef}
+      onDragStart={onDragStart}
+      onDragEnd={onDragEnd}
+      onMouseMove={(e: React.MouseEvent) => setTimeout(() => onDragMove(e), 200)}
+      // onTouchEnd={() => onDragStart}
+      // onTouchStart={onDragStart}
+      // onTouchMove={(e: React.TouchEvent) => setTimeout(() => onDragMove(e), 200)}
+    >
       {calendar.map((el) => {
         return (
           <Calendar.Item key={el.date.format('MM.DD')} today={el.date.format('YYYY.MM.DD') === moment().format('YYYY.MM.DD')}>

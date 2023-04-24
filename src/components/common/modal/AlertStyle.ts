@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Modal from './ModalViewStyle';
 
 const BaseBtn = styled.button`
   display: inline-block;
@@ -26,6 +27,10 @@ const BaseBtn = styled.button`
   }
 `;
 const Alert = {
+  Container: styled(Modal.Container)`
+    width: 77.8%;
+    min-width: 28rem;
+  `,
   Text: styled.p`
     font-size: 1.6rem;
     text-align: center;

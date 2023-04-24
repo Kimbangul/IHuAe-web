@@ -13,8 +13,14 @@ const UISlice = createSlice({
     setModalClose(state) {
       state.modal = false;
     },
+    setAlertContent(state, action: PayloadAction<ReactNode>) {
+      state.alert = action.payload;
+    },
+    setAlertClose(state) {
+      state.alert = false;
+    },
   },
 });
 
-export const { setModalClose, setModalContent } = UISlice.actions;
+export const { setModalClose, setModalContent, setAlertClose, setAlertContent } = UISlice.actions;
 export default UISlice;
