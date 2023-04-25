@@ -123,6 +123,8 @@ export const Calendar = {
   Item: styled.li<{ today: boolean }>`
     color: ${({ theme }) => theme.color.text.text_08};
     padding: 0 2rem;
+    cursor: default;
+    user-select: none;
     ${({ today }) =>
       today &&
       css`
