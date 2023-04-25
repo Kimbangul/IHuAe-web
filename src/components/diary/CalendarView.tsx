@@ -12,14 +12,17 @@ const CalendarView = ({ calendar }: DiaryViewParamType) => {25
   // FUNCTION
   const onDragStart = (e: React.MouseEvent | React.TouchEvent) => {
     if (!(scrollRef.current?.offsetLeft)) return;
+    let x = 0;
     setIsDrag(true);
+
     if (e.nativeEvent instanceof MouseEvent){
-      setStartX(e.nativeEvent.pageX - scrollRef.current?.offsetLeft);
+      x = e.nativeEvent.pageX - scrollRef.current?.offsetLeft;
     }
     else if (e.nativeEvent instanceof TouchEvent){
-      setStartX(e.nativeEvent.changedTouches[0].pageX - scrollRef.current?.offsetLeft);
+      x = e.nativeEvent.changedTouches[0].pageX - scrollRef.current?.offsetLeft;
     }
 
+    setStartX(x);
     setScrollLeft(scrollRef.current.scrollLeft);
   }
 
@@ -33,11 +36,12 @@ const CalendarView = ({ calendar }: DiaryViewParamType) => {25
     else if (e.nativeEvent instanceof TouchEvent){
       x = e.nativeEvent.changedTouches[0].pageX - scrollRef.current.offsetLeft;
     }
+
     const walk = (x-startX) * 1;
     scrollRef.current.scrollLeft = scrollLeft - walk;
   }
 
-  const onDragEnd = (e:React.MouseEvent | React.TouchEvent) => {
+  const onDragEnd = () => {
     if (!(scrollRef.current?.scrollLeft)) return;
     setIsDrag(false);
   }
@@ -52,12 +56,6 @@ const CalendarView = ({ calendar }: DiaryViewParamType) => {25
       onTouchEnd={onDragEnd}
       onTouchStart={onDragStart}
       onTouchMove={onMouseMove}
-      // onMouseDown={onDragStart}
-      // onMouseUp={onDragEnd}
-      // onMouseMove={(e: React.MouseEvent) => setTimeout(() => onDragMove(e), 200)}
-      // onTouchEnd={() => onDragStart}
-      // onTouchStart={onDragStart}
-      // onTouchMove={(e: React.TouchEvent) => setTimeout(() => onDragMove(e), 200)}
     >
       {calendar.map((el) => {
         return (
