@@ -1,21 +1,34 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import axios, {
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
+} from 'axios';
 
 class AxiosClient {
   client: AxiosInstance;
-
   constructor() {
     this.client = axios.create({
       baseURL: process.env.NEXT_PUBLIC_API_URL,
       headers: {
         accept: 'application/json',
-        'content=type': 'application/json',
+        'content-type': 'application/json',
       },
     });
-    this.client.interceptors.request.use(this.requestFullFilled, this.requestError);
-    this.client.interceptors.response.use(this.responseFullfilled, this.responseError);
+    this.client.interceptors.request.use(
+      this.requestFullFilled,
+      this.requestError
+    );
+    this.client.interceptors.response.use(
+      this.responseFullfilled,
+      this.responseError
+    );
   }
 
-  requestFullFilled(config: InternalAxiosRequestConfig<any>): InternalAxiosRequestConfig<any> {
+  requestFullFilled(
+    config: InternalAxiosRequestConfig<any>
+  ): InternalAxiosRequestConfig<any> {
     const access = localStorage.getItem('access');
     if (access) {
       config.headers.set('Authorization', `Bearer ${access}`);
