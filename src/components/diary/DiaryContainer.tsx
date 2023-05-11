@@ -9,11 +9,22 @@ const DiaryContainer = () => {
   const calendar = makeDiaryCalendar(initialDate);
 
 
+  // useEffect(()=>{
+  //   client.post('/today_feeling', {
+  //     test: 'test data',
+  //     test2: 'test data 2'
+  //   });
+  // }, []);
+
+  // useEffect(()=>{
+  //   const data = client.get('/');
+  //   console.log(data);
+  // }, []);
+
+
   useEffect(()=>{
-    client.post('/today_feeling', {
-      test: 'test data',
-      test2: 'test data 2'
-    });
+    const data = client.post('/insert');
+    console.log(data);
   }, []);
 
 
