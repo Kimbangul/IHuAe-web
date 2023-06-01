@@ -18,7 +18,7 @@ const ChatContainer = () => {
 
   // FUNCTION 메세지 전송
   const sendMsg = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key !== 'Enter') return;
+    if (e.key !== 'Enter' || inputVal === '') return;
     e.preventDefault();
     const newMsg = new ChatBubble(moment(), inputVal);
     setData((prev) => [...prev, newMsg]);

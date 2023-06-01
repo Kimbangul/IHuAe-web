@@ -16,16 +16,16 @@ const DiaryContainer = () => {
   //   });
   // }, []);
 
-  // useEffect(()=>{
-  //   const data = client.get('/');
-  //   console.log(data);
-  // }, []);
-
-
   useEffect(()=>{
-    const data = client.post('/insert');
+    const data = client.get('/?url=https://velog.io/@kimbangul');
     console.log(data);
   }, []);
+
+
+  // useEffect(()=>{
+  //   const data = client.post('/insert');
+  //   console.log(data);
+  // }, []);
 
 
   return <DiaryView calendar={calendar}/>
